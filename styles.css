@@ -1,10 +1,23 @@
-h1 {
-    font-family: 'Fjalla One', sans-serif;
+.content{
     display: flex;
-    margin-left: 11%;
-    font-size: 9rem;
-    line-height: 1;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 5%;
+}
+.title{
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 8rem;
 }
 body {
     color: white;
+    line-height: 1;
+}
+p, a{
+    font-family: 'PT Sans', sans-serif;
+    font-size: 2.5rem;
+    letter-spacing: 0.2rem;
+    margin-top:1em
+}
+h1 {
+    margin: 0px;
 }

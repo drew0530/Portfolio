@@ -10,7 +10,7 @@ $(document).ready(function() {
         'horizontalCentered': true,
         'showActiveTooltip': true,
         'css3': true,
-        'sectionsColor': ['#102444', '#102444', '#0A4138', '#8f3985', '#a675a1']
+        'sectionsColor': ['#102444', '#102444', '#102444', '#102444', '#102444']
     });
     var scene = document.getElementById('scene');
     var parallaxInstance = new Parallax(scene);
