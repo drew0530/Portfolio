@@ -1,8 +1,8 @@
-h1 {
+.title{
     font-family: 'Fjalla One', sans-serif;
     display: flex;
-    margin-left: 11%;
-    font-size: 9rem;
+    margin-left: 5%;
+    font-size: 8rem;
     line-height: 1;
 }
 body {
