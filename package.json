@@ -16,8 +16,9 @@
     "url": "https://github.com/drew0530/Portfolio/issues"
   },
   "homepage": "https://github.com/drew0530/Portfolio#readme",
-    "dependencies": {
-    "parallax-js": "latest",
-    "fullpage.js": "latest"
+  "dependencies": {
+    "animejs": "^2.2.0",
+    "fullpage.js": "latest",
+    "parallax-js": "latest"
   }
 }

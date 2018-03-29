@@ -6,13 +6,15 @@
     <meta charset="UTF-8">
     <title>Portfolio</title>    
     
-    <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Montserrat" rel="stylesheet">
+    <script src="node_modules/parallax-js/dist/parallax.min.js"></script>
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl"
-      crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
     <link rel="stylesheet" type="text/css" href="node_modules/fullpage.js/dist/jquery.fullpage.css" />
     <script type="text/javascript" src="node_modules/fullpage.js/dist/jquery.fullpage.js"></script>
+    <script src="node_modules/animejs/anime.min.js"></script>
+    
+    <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Montserrat" rel="stylesheet">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl"
+      crossorigin="anonymous"></script>
     
     <link rel="stylesheet" type="text/css" href="styles.css" />
     <script type="text/javascript" src="scripts.js"></script>
@@ -23,6 +25,16 @@
       <div id="section1" class="section">
         <div class="content">
           <h1 id="name">ANDREW <br>WILLIAMSON</h1>
+          <svg height="10" width="200" style="margin-top:50px">
+            <line x1="0" y1="0" x2="150" y2="0" style="stroke:#fff;stroke-width:10" />
+          </svg>
+          <svg height="10" width="200" style="margin-left:50px">
+            <line x1="0" y1="0" x2="150" y2="0" style="stroke:#fff;stroke-width:10" />
+          </svg>
+        </div>
+        <div id="scene">
+          <div id="moon" data-depth="0.2"><img src="imgs/moon.png" /></div>
+          <div id="cloud" data-depth="0.6"><img src="imgs/cloud1.png" /></div>
         </div>
       </div>
       <div id="section2" class="section">
@@ -55,9 +67,6 @@
             </div>
         </div>
       </div>
-    </div>
-    <div id="scene">
-      <div data-depth="0.4"><img src="imgs/stars.png"/></div>
     </div>
   </body>
 </html>
