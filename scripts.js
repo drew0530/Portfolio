@@ -13,19 +13,39 @@ $(document).ready(function() {
         'sectionsColor': ['#072142', '#072142', '#072142', '#072142', '#072142'],
         // 'navigation': true,
         // 'navigationPosition': 'left'
+        onLeave: function(){
+            
+        },
+        afterRender: function(){
+            var nameText = anime.timeline();
+            var lineDrawing = anime.timeline();
+            lineDrawing.add({
+                targets: '#lines line',
+                strokeDashoffset: {
+                    value: [anime.setDashoffset, 0],
+                    duration: 600,
+                    delay: 250,
+                    easing: 'easeOutSine'
+                }
+            })
+            nameText.add({
+                targets: '#name',
+                translateX: [1],
+                duration: 600,
+                delay: 250,
+                easing: 'easeOutSine'
+            })
+        }
     });
     // Load Parallax Instance
     var scene = document.getElementById('scene');
     var parallaxInstance = new Parallax(scene);
 
-    var lineDrawing = anime({
-        targets: '#lineDrawing .lines path',
-        strokeDashoffset: [anime.setDashoffset, 0],
-        easing: 'easeInOutSine',
-        duration: 1500,
-        delay: function (el, i) { return i * 250 },
-        direction: 'alternate',
-        loop: true
-    });
+
+
+    
+
+
+
 });
 
