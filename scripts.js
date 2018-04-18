@@ -1,11 +1,9 @@
 /* scripts.js */ 
 
-
 $(document).ready(function() {
     // Load FullPage Instance
     $('#fullpage').fullpage({
         'anchors': ['page1', 'page2', 'page3', 'page4', 'page5'],
-        'lockanchors': true,
         'verticalCentered': true,
         'horizontalCentered': true,
         'showActiveTooltip': true,
@@ -23,18 +21,18 @@ $(document).ready(function() {
                 //     easing: 'easeOutSine'
                 // }
                 translateX: [-750, 0],
-                duration: 600,
+                duration: 800,
                 delay:(el,i)=> {
                     return 250 + (i*100);
                 },
-                easing: 'easeOutCubic'
+                easing: 'easeOutQuad'
             });
             titleText.add({
                 targets: '.title',
                 translateX: [-750, 0],
                 opacity:[0,1],
-                easing: "easeOutSine",
-                duration: 600,
+                easing: "easeOutQuad",
+                duration: 800,
                 delay: 250
             });
         },
@@ -44,18 +42,18 @@ $(document).ready(function() {
             lineDrawing.add({
                 targets: '#section'+nextIndex+' .lines line',
                 translateX: [-750, 0],
-                duration: 600,
+                duration: 800,
                 delay:(el,i)=> {
                     return 250 + (i*100);
                 },
-                easing: 'easeOutCubic'
+                easing: 'easeOutQuad'
             });
             titleText.add({
                 targets: '#section'+nextIndex+' .title',
                 translateX: [-750, 0],
                 opacity:[0,1],
-                easing: "easeOutSine",
-                duration: 600,
+                easing: "easeOutQuad",
+                duration: 800,
                 delay: 250
             });
         }
