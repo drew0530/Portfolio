@@ -1,73 +1,94 @@
-html, body, ul, ol {
+html, body, ul, ol, h1 {
     margin: 0;
     padding: 0;
-}
-svg {
-    margin: 0.5em;
-}
-body {
     color: white;
     line-height: 1;
 }
-h1 {
-    margin: 0px;
-}
-p,a,#github-icon,#linkedin-icon{
+
+p,a,i,#github-icon,#linkedin-icon{
     font-family: 'Montserrat', sans-serif;
     font-size: 2rem;
     letter-spacing: 0.1rem;
     text-decoration: none;
     margin:0;
 }
+
 #name {
     font-family: 'Fjalla One', sans-serif;
     font-size:7rem;
 }
+
+#navbar {
+    position: fixed;
+    margin-top: 1%;
+    right: 1%;
+    width: auto;
+    height: auto;
+    z-index: 1;
+}
+
 .section > *{
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
+
+#info {
+    position: absolute;
+    bottom: 5%;
+    letter-spacing: 0.2rem;
+    opacity: 0.5;
+}
+
 .content-left{
-    display: flex;
     flex: 1;
     flex-direction: column;
     justify-content: center;
     margin-left: 5%;
     overflow: hidden;
 }
+
 .content-right{
-    display: flex;
     flex: 1;
     flex-direction: column;
     justify-content: center;
     overflow: hidden;
+    margin-left: 5%;
 }
+
 .card {
     background-color: #151a33;
     box-shadow: 5px 10px 10px #090d23;
     width: 300px;
     height: 300px;
 }
+
 .title{
     font-family: 'Fjalla One', sans-serif;
     font-size: 6rem;
-    opacity: 0;
+    opacity: 0.5;
     -webkit-transform: translate3d(0, -750, 0);
     transform: translate3d(0, -750, 0);
 }
+
 .lines{
     -webkit-transform: translate3d(0, -750, 0);
     transform: translate3d(0, -750, 0);
+    opacity: 0.5;
 }
+
 .text{
-    display:flex;
     flex-direction:row;
     align-items: center;
     margin-top:3em;
 }
+
 a:link {
     color: white;
 }
+
 a:visited {
     color:white;
 }
+
