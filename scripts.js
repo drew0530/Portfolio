@@ -1,23 +1,35 @@
 /* scripts.js */ 
-
 $(document).ready(function() {
-    // Load FullPage Instance
-
     //USE ME TO ENCAPSULATE ALL ANIMATION STUFF!!
-    // var buttonEl = document.querySelector('#menu');
+    var btnMenuOpen = document.querySelector('#btnMenuOpen');
+    var btnMenuClose = document.querySelector('#btnMenuClose');
+    function animateButton(b) {
+        anime.remove(btnMenuOpen);
+        if (b){  //show
+            console.log('show')
+            anime({
+                targets: btnMenuOpen,
+                opacity: {
+                   value: [0,1],
+                   duration: 800
+                },
+                duration:800,
+                delay: 200,
+            });
+        }else{ //hide
+            console.log('hide')
+            anime({
+                targets: btnMenuOpen,
+                opacity: { value: [1,0], duration: 300 },
+                duration: 300
+            });
+        }
+    };
+    function showButton() { animateButton(true); };
+    function hideButton() { animateButton(false); };
+    btnMenuOpen.addEventListener('click', hideButton, false);
+    btnMenuClose.addEventListener('click', showButton, false);
 
-    // function animateButton(scale, duration, elasticity) {
-    //   anime.remove(buttonEl);
-    //   anime({
-    //     targets: buttonEl,
-    //     scale: scale,
-    //     duration: duration,
-    //     elasticity: elasticity
-    //   });
-    // }
-    // function enterButton() { animateButton(1.2, 800, 400) };
-    // function leaveButton() { animateButton(1.0, 600, 300) };
-    
     $('#fullpage').fullpage({
         'anchors': ['page1', 'page2', 'page3', 'page4', 'page5'],
         'verticalCentered': true,
@@ -61,11 +73,10 @@ $(document).ready(function() {
                 duration:500,
                 delay: 700,
                 easing: 'easeInOutCubic'
-            })
+            });
 
             // THEN YOU CAN JUST CALL ME LIKE THIS!!!!
-            // buttonEl.addEventListener('mouseenter', enterButton, false);
-            // buttonEl.addEventListener('mouseleave', leaveButton, false);
+
         },
         onLeave: function(index, nextIndex, direction){
             var titleText = anime.timeline({opacity:0});
@@ -91,7 +102,38 @@ $(document).ready(function() {
     });
     
     // Load Parallax Instance
-    var scene = document.getElementById('scene');
-    var parallaxInstance = new Parallax(scene);
+    // var scene = document.getElementById('scene');
+    // var parallaxInstance = new Parallax(scene);
 });
+
+function menuOpen(){
+    var sidebar = document.getElementById("sidebar");
+
+    sidebar.classList.remove('closed');
+    sidebar.classList.add('open');
+    sidebar.style.display = "flex";
+}
+
+function menuClose(){
+    var sidebar = document.getElementById("sidebar");
+    var hide = function (){
+        sidebar.style.display = 'none';
+    }
+
+    sidebar.classList.remove('open');
+    sidebar.classList.add('closed');
+    setTimeout(hide, 400);
+}
+
+function nav(section){
+    switch(section){
+        case 'about':
+
+        case 'experience':
+
+        case 'projects':
+
+        case 'contact':
+    }
+}
 

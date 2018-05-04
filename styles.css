@@ -20,11 +20,30 @@ p,a,i,#github-icon,#linkedin-icon{
 
 #navbar {
     position: fixed;
-    margin-top: 1%;
-    right: 1%;
+    margin-top: 0;
+    right: 0;
     width: auto;
     height: auto;
     z-index: 1;
+    padding: 1%;
+}
+
+#sidebar {
+    position: fixed!important;
+    height: 100%;
+    width: 20%;
+    z-index:2;
+    right: 0;
+    background:linear-gradient(to right, #072142,rgb(255, 89, 117));
+    padding: 1%;
+    flex-direction: column;
+}
+
+.open{position:relative;animation:animateright 0.4s}@keyframes animateright{from{right:-300px;opacity:0} to{right:0;opacity:1}}
+.closed{position:relative;animation:animateleft 0.4s}@keyframes animateleft{from{right:0;opacity:1} to{right:-300px;opacity:0}}
+
+.hover:hover {
+    background:rgba(255,255,255, 0.3); /* Remove this and replace with underline animation */
 }
 
 .section > *{
@@ -39,6 +58,12 @@ p,a,i,#github-icon,#linkedin-icon{
     bottom: 5%;
     letter-spacing: 0.2rem;
     opacity: 0.5;
+}
+
+.bar-item {
+    padding: 30px 16px;
+    padding-left: 0px;
+    align-self: center;
 }
 
 .content-left{
@@ -75,7 +100,6 @@ p,a,i,#github-icon,#linkedin-icon{
 .lines{
     -webkit-transform: translate3d(0, -750, 0);
     transform: translate3d(0, -750, 0);
-    opacity: 0.5;
 }
 
 .text{

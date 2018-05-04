@@ -21,8 +21,16 @@
 
   </head>
   <body>
-    <div id="navbar">
-      <a class="menu"><i class="fas fa-bars"></i> Menu</a>
+    <div id="navbar" class="hover" onclick="menuOpen()">
+      <a id="btnMenuOpen" class="bar-item"><i class="fas fa-bars"></i> Menu</a>
+    </div>
+    <div id="sidebar" class="closed" style="display:none">
+      <a id="btnMenuClose" class="bar-item hover" onclick="menuClose()"><strong style="align-self: left;">&times;</strong> Menu</a>
+      <svg height="5" width="100%"><line x1="0" x2="100%" style="stroke:#fff; stroke-width:3; stroke-linecap: round;"></line></svg>
+      <a class="bar-item hover" onclick="nav('about')">About Me</a>
+      <a class="bar-item hover" onclick="nav('experience')">Experience</a>
+      <a class="bar-item hover" onclick="nav('projects')">Projects</a>
+      <a class="bar-item hover" onclick="nav('contact')">Contact</a>
     </div>
     <div id="fullpage">
       <div id="section1" class="section">
@@ -31,9 +39,9 @@
             <span>Andrew</span><br>
             <span>Williamson</span>
           </h1>
-          <svg class="lines" height="50" width="200" style="margin-top:25px">
-            <line x1="0" y1="5" x2="150" y2="5" style="stroke:#fff;stroke-width:5" />
-            <line x1="50" y1="25" x2="200" y2="25" style="stroke:#fff;stroke-width:5" />
+          <svg class="lines" height="50" width="210" style="margin-top:25px">
+            <line x1="5" y1="5" x2="145" y2="5" style="stroke:rgb(255, 89, 117); stroke-width:5; stroke-linecap: round" />
+            <line x1="65" y1="25" x2="205" y2="25" style="stroke:rgb(255, 89, 117); stroke-width:5; stroke-linecap: round" />
           </svg>
         </div>
         <p id="info">↓ Scroll Down ↓</p>
@@ -41,9 +49,9 @@
       <div id="section2" class="section">
         <div class="content-left">
           <h1 class="title">About Me</h1>
-          <svg class="lines" height="50" width="200" style="margin-top:25px">
-            <line x1="0" y1="5" x2="150" y2="5" style="stroke:#fff;stroke-width:5" />
-            <line x1="50" y1="25" x2="200" y2="25" style="stroke:#fff;stroke-width:5" />
+          <svg class="lines" height="50" width="210" style="margin-top:25px">
+            <line x1="5" y1="5" x2="145" y2="5" style="stroke:rgb(255, 89, 117); stroke-width:5; stroke-linecap: round" />
+            <line x1="65" y1="25" x2="205" y2="25" style="stroke:rgb(255, 89, 117); stroke-width:5; stroke-linecap: round" />
           </svg>
           <div class="text">
             <p>Passionate about design,<br/>development, and illustration.</p>
@@ -53,9 +61,9 @@
       <div id="section3" class="section">
         <div class="content-left">
           <h1 class="title">Experience</h1>
-          <svg class="lines" height="50" width="200" style="margin-top:25px">
-            <line x1="0" y1="5" x2="150" y2="5" style="stroke:#fff;stroke-width:5" />
-            <line x1="50" y1="25" x2="200" y2="25" style="stroke:#fff;stroke-width:5" />
+          <svg class="lines" height="50" width="210" style="margin-top:25px">
+            <line x1="5" y1="5" x2="145" y2="5" style="stroke:rgb(255, 89, 117); stroke-width:5; stroke-linecap: round" />
+            <line x1="65" y1="25" x2="205" y2="25" style="stroke:rgb(255, 89, 117); stroke-width:5; stroke-linecap: round" />
           </svg>
         </div>
         <div class="content-right">
@@ -65,9 +73,9 @@
       <div id="section4" class="section">
         <div class="content-left">
           <h1 class="title">Projects</h1>
-          <svg class="lines" height="50" width="200" style="margin-top:25px">
-            <line x1="0" y1="5" x2="150" y2="5" style="stroke:#fff;stroke-width:5" />
-            <line x1="50" y1="25" x2="200" y2="25" style="stroke:#fff;stroke-width:5" />
+          <svg class="lines" height="50" width="210" style="margin-top:25px">
+            <line x1="5" y1="5" x2="145" y2="5" style="stroke:rgb(255, 89, 117); stroke-width:5; stroke-linecap: round" />
+            <line x1="65" y1="25" x2="205" y2="25" style="stroke:rgb(255, 89, 117); stroke-width:5; stroke-linecap: round" />
           </svg>
           <div class="text">
             <a href="https://github.com/drew0530?tab=repositories"><i id="github-icon" class="fab fa-github"></i> Github</a>
@@ -78,8 +86,8 @@
         <div class="content-left">
           <h1 class="title">Contact Me</h1>
           <svg class="lines" height="50" width="200" style="margin-top:25px">
-            <line x1="0" y1="5" x2="150" y2="5" style="stroke:#fff;stroke-width:5" />
-            <line x1="50" y1="25" x2="200" y2="25" style="stroke:#fff;stroke-width:5" />
+            <line x1="0" y1="5" x2="150" y2="5" style="stroke:rgb(255, 89, 117); stroke-width:5; stroke-linecap: round" />
+            <line x1="50" y1="25" x2="200" y2="25" style="stroke:rgb(255, 89, 117); stroke-width:5; stroke-linecap: round" />
           </svg>
             <div class="text">
               <a href="https://www.linkedin.com/in/andrew-l-drew-williamson-85727915a/"><i id="linkedin-icon" class="fab fa-linkedin"></i> LinkedIn</a>
