@@ -1,27 +1,29 @@
 /* scripts.js */ 
 $(document).ready(function() {
-    //USE ME TO ENCAPSULATE ALL ANIMATION STUFF!!
+    //
+    // Side Bar animations
     var btnMenuOpen = document.querySelector('#btnMenuOpen');
     var btnMenuClose = document.querySelector('#btnMenuClose');
+    var navbar = document.querySelector('.navbar');
     function animateButton(b) {
         anime.remove(btnMenuOpen);
         if (b){  //show
-            console.log('show')
             anime({
-                targets: btnMenuOpen,
-                opacity: {
-                   value: [0,1],
-                   duration: 800
+                targets: navbar,
+                translateX: {
+                   value: [300,0]
                 },
-                duration:800,
-                delay: 200,
+                easing: "easeInOutCubic",
+                duration:400,
             });
         }else{ //hide
-            console.log('hide')
             anime({
-                targets: btnMenuOpen,
-                opacity: { value: [1,0], duration: 300 },
-                duration: 300
+                targets: navbar,
+                translateX: {
+                    value: [0,300]
+                },
+                easing: "easeInOutCubic",
+                duration: 400
             });
         }
     };
@@ -29,7 +31,9 @@ $(document).ready(function() {
     function hideButton() { animateButton(false); };
     btnMenuOpen.addEventListener('click', hideButton, false);
     btnMenuClose.addEventListener('click', showButton, false);
-
+    
+    //
+    // General FullPage Animations
     $('#fullpage').fullpage({
         'anchors': ['page1', 'page2', 'page3', 'page4', 'page5'],
         'verticalCentered': true,
@@ -38,9 +42,9 @@ $(document).ready(function() {
         'css3': true,
         'sectionsColor': ['#072142', '#072142', '#072142', '#072142', '#072142'],
         afterRender: function(){
-            var titleText = anime.timeline({opacity:0});
-            var lineDrawing = anime.timeline();
-            lineDrawing.add({
+            var showText = anime.timeline({opacity:0});
+            var showLines = anime.timeline();
+            showLines.add({
                 targets: '.lines line',
                 // strokeDashoffset: {
                 //     value: [anime.setDashoffset, 0],
@@ -55,7 +59,7 @@ $(document).ready(function() {
                 },
                 easing: 'easeOutQuad'
             });
-            titleText.add({
+            showText.add({
                 targets: '.title',
                 translateX: [-750, 0],
                 opacity:[0,1],
@@ -64,7 +68,7 @@ $(document).ready(function() {
                 delay: 250
             });
             var navbar = anime({
-                targets: '#navbar',
+                targets: '.navbar',
                 translateY: [-50, 0],
                 opacity: {
                    value: [0,1],
@@ -79,10 +83,10 @@ $(document).ready(function() {
 
         },
         onLeave: function(index, nextIndex, direction){
-            var titleText = anime.timeline({opacity:0});
-            var lineDrawing = anime.timeline();
-            lineDrawing.add({
-                targets: '#section'+nextIndex+' .lines line',
+            var showTitle = anime.timeline({opacity:0});
+            var showLines = anime.timeline();
+            showLines.add({
+                targets: '#s'+nextIndex+' .content__lines line',
                 translateX: [-750, 0],
                 duration: 800,
                 delay:(el,i)=> {
@@ -90,8 +94,8 @@ $(document).ready(function() {
                 },
                 easing: 'easeOutQuad'
             });
-            titleText.add({
-                targets: '#section'+nextIndex+' .title',
+            showTitle.add({
+                targets: '#s'+nextIndex+' .content__title',
                 translateX: [-750, 0],
                 opacity:[0,1],
                 easing: "easeOutQuad",
@@ -107,33 +111,37 @@ $(document).ready(function() {
 });
 
 function menuOpen(){
-    var sidebar = document.getElementById("sidebar");
+    var sidebar = document.getElementsByClassName("sidebar")[0];
 
-    sidebar.classList.remove('closed');
-    sidebar.classList.add('open');
+    sidebar.classList.remove('sidebar--closed');
+    sidebar.classList.add('sidebar--open');
     sidebar.style.display = "flex";
 }
 
 function menuClose(){
-    var sidebar = document.getElementById("sidebar");
+    var sidebar = document.getElementsByClassName("sidebar")[0];
     var hide = function (){
         sidebar.style.display = 'none';
     }
 
-    sidebar.classList.remove('open');
-    sidebar.classList.add('closed');
+    sidebar.classList.remove('sidebar--open');
+    sidebar.classList.add('sidebar--closed');
     setTimeout(hide, 400);
 }
 
 function nav(section){
     switch(section){
+        case 'home':
+            return $.fn.fullpage.moveTo('page1', 0)
         case 'about':
-
+            return $.fn.fullpage.moveTo('page2', 1)
         case 'experience':
-
+            return $.fn.fullpage.moveTo('page3', 2)
         case 'projects':
-
+            return $.fn.fullpage.moveTo('page4', 3)
         case 'contact':
+            return $.fn.fullpage.moveTo('page5', 4)
+        default:
+            break;
     }
 }
-

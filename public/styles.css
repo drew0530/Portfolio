@@ -1,0 +1,140 @@
+html, body, ul, ol, h1 {
+    margin: 0;
+    padding: 0;
+    color: white;
+    line-height: 1;
+}
+
+p,a,i{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    letter-spacing: 0.1rem;
+    text-decoration: none;
+    margin:0;
+}
+
+.navbar {
+    position: fixed;
+    display:flex;
+    right: 1%;
+    z-index: 1;
+}
+
+.navbar__item {
+    padding: 20px;
+    align-self: center;
+    width: 100%;
+}
+
+.navbar > a {
+    width: 100%;height:100%;
+}
+
+.sidebar {
+    position: fixed;
+    height: 100%;
+    width: 20%;
+    z-index:2;
+    right: 0;
+    background:linear-gradient(to right, #072142,rgb(255, 89, 117));
+    flex-direction: column;
+    text-align:center;
+}
+
+.sidebar__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar__item {
+    margin: 20px 0px;
+    width: 100%;
+    height:100%;
+}
+
+.sidebar__link {
+    width: 100%;
+    padding: 15px 20%;
+}
+
+.sidebar__item--close-icon {
+    text-align:right;
+}
+
+.sidebar--open{position:fixed;animation:animateright 0.4s}@keyframes animateright{from{right:-300px;opacity:0} to{right:0;opacity:1}}
+.sidebar--closed{position:fixed;animation:animateleft 0.4s}@keyframes animateleft{from{right:0;opacity:1} to{right:-300px;opacity:0}}
+
+[class*="--hover"]:hover {
+    background:rgba(255,255,255, 0.3); /* Remove this and replace with underline animation */
+}
+
+.section > *{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.content--left{
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 5%;
+    padding-top: 10px;
+    overflow: hidden;
+}
+
+.content--right{
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    /* overflow: hidden; */
+    margin-left: 5%;
+}
+
+.content__title{
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 6rem;
+    -webkit-transform: translate3d(0, -750, 0);
+    transform: translate3d(0, -750, 0);
+}
+
+.content__title--name {
+    font-family: 'Fjalla One', sans-serif;
+    font-size:7rem;
+}
+
+.content__info{
+    position: absolute;
+    bottom: 5%;
+    letter-spacing: 0.2rem;
+    opacity: 0.5;
+}
+
+.card {
+    background-color: #151a33;
+    box-shadow: 5px 10px 10px #090d23;
+    width: 300px;
+    height: 300px;
+}
+
+.content__lines{
+    -webkit-transform: translate3d(0, -750, 0);
+    transform: translate3d(0, -750, 0);
+}
+
+.text{
+    flex-direction:row;
+    align-items: center;
+    margin-top:3em;
+}
+
+a:link {
+    color: white;
+}
+
+a:visited {
+    color:white;
+}
+
