@@ -27,11 +27,50 @@ $(document).ready(function() {
             });
         }
     };
-    function showButton() { animateButton(true); };
-    function hideButton() { animateButton(false); };
-    btnMenuOpen.addEventListener('click', hideButton, false);
-    btnMenuClose.addEventListener('click', showButton, false);
+    btnMenuOpen.addEventListener('click', function(){animateButton(false)}, false);
+    btnMenuClose.addEventListener('click', function(){animateButton(true)}, false);
+    //
+    // Navbar animations
+    var btnNavbar = document.querySelectorAll('.navbar__item');
+    var toolTip = document.querySelectorAll('.navbar__tooltip')
+    function showToolTip(index){
+        var distances = [110, 125, 93];
+        anime.remove(toolTip.item(index));
+        anime({
+            targets: toolTip.item(index),
+            opacity: [1,1],
+            translateY: distances[index],
+            rotate: {
+                value:90,
+                duration: 0
+            },        
+            duration: 500,
+            easing: "easeOutCubic"
+        });
+    }
+    function hideToolTip(index){
+        anime.remove(toolTip.item(index));
+        anime({
+            targets: toolTip.item(index),
+            opacity: [1,0],
+            translateY: -300,
+            rotate: {
+                value:90,
+                duration: 0
+            },    
+            duration: 500,
+            easing: "easeInCubic"
+        });
+
+    }
     
+    btnNavbar[0].addEventListener('pointerenter', function(){showToolTip(0)}, false);
+    btnNavbar[0].addEventListener('pointerleave', function(){hideToolTip(0)}, false);
+    btnNavbar[1].addEventListener('pointerenter', function(){showToolTip(1)}, false);
+    btnNavbar[1].addEventListener('pointerleave', function(){hideToolTip(1)}, false);
+    btnNavbar[2].addEventListener('pointerenter', function(){showToolTip(2)}, false);
+    btnNavbar[2].addEventListener('pointerleave', function(){hideToolTip(2)}, false);
+
     //
     // General FullPage Animations
     $('#fullpage').fullpage({

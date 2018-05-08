@@ -22,8 +22,24 @@ p,a,i{
 
 .navbar__item {
     padding: 20px;
-    align-self: center;
     width: 100%;
+    z-index:1;
+    justify-content:center;
+    display:flex;
+}
+
+.navbar__tooltip {
+    text-transform: uppercase;
+    position:fixed;
+    z-index: -1;
+    opacity: 1;
+    text-align: center;
+}
+
+.navbar__tooltip--vertical {
+    float: left;
+    transform: rotate(90deg);
+    transform-origin: (center, center, 0);
 }
 
 .navbar > a {
