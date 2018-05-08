@@ -32,7 +32,7 @@ p,a,i{
     text-transform: uppercase;
     position:fixed;
     z-index: -1;
-    opacity: 1;
+    opacity: 0;
     text-align: center;
 }
 
