@@ -1,0 +1,17 @@
+{
+  "name": "portfolio",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "SET DEBUG=portfolio:* & node ./bin/www"
+  },
+  "dependencies": {
+    "debug": "~2.6.9",
+    "express": "^4.19.2",
+    "http-errors": "~1.6.3",
+    "morgan": "^1.10.0",
+    "node-sass-middleware": "1.1.0",
+    "pug": "^2.0.4",
+    "scrollmagic": "^2.0.8"
+  }
+}
