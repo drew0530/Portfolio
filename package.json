@@ -2,6 +2,9 @@
   "name": "portfolio",
   "version": "0.0.0",
   "homepage": "https://drew0530.github.io/Portfolio",
+  "engines": {
+    "node": "20.16.0"
+  },
   "private": true,
   "scripts": {
     "start": "SET DEBUG=portfolio:* & node ./bin/www"
