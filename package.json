@@ -1,7 +1,7 @@
 {
   "name": "portfolio",
   "version": "0.0.0",
-  "homepage": "https://[your-github-username].github.io/[repo-name]",
+  "homepage": "https://drew0530.github.io/Portfolio",
   "private": true,
   "scripts": {
     "start": "SET DEBUG=portfolio:* & node ./bin/www"
