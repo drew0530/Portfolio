@@ -1,12 +1,15 @@
 @import 'stars'
 @import 'scrollmagic'
 
+*
+  color: white
+
 #title
   position: absolute
   top: 50%
   left: 0
   right: 0
-  
+
   color: #FFF
   text-align: center
   font-family: 'poppins'
@@ -22,5 +25,45 @@
     -webkit-background-clip: text
     -webkit-text-fill-color: transparent
 
-*
-  color: white
+#subtitle
+  position: absolute
+  top: 55%
+  left: 0
+  right: 0
+
+  color: #808080
+  text-align: center
+  font-family: 'poppins'
+  font-weight: 400
+  font-size: 30px
+  letter-spacing: 4px
+  
+#nav-bar
+  position: sticky
+  top: 30px
+  width: 100%
+  text-align: center
+
+  .nav-container
+    display: inline-flex
+    background: rgba(52, 53, 59, 0.5)
+    border-radius: 40px
+
+    button
+      font-size: 20px
+      font-weight: 100
+      border: none
+      background: transparent
+      letter-spacing: .1rem
+      border-radius: 40px
+      padding: 15px 25px 15px 25px
+      margin: 10px
+      &.active
+        background: rgba(92, 94, 105, 0.5) !important
+
+.main-content
+  top: 0
+  left: 0
+  position: absolute
+  width: 100%
+  height: 100vh
