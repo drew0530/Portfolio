@@ -4,21 +4,28 @@ block content
   #stars
   #stars2 
   #stars3
-  #nav-bar
-    .nav-container
-      button(class="active") About
-      button Experience
-      button Work 
-      button Skills
-      button Contact
-  .main-content
-    section.panel.blue
-      div
-        #title ANDREW WILLIAMSON
-        #subtitle Senior Full Stack Developer
-    section.panel.turqoise
-      b TWO
-    section.panel.green
-      b THREE
-    section.panel.bordeaux
-      b FOUR
+  .nav-container
+    .nav-bar
+      a.active(href="#about") About
+      a(href="#experience") Experience
+      a(href="#work") Work 
+      a(href="#skills") Skills
+      a(href="#contact") Contact
+  section.panel.about
+    a#about
+    div
+      #title ANDREW WILLIAMSON
+      #subtitle Senior Full Stack Developer
+  section.panel
+    a#experience
+    b EXPERIENCE
+  section.panel 
+    a#work
+    b WORK
+  section.panel 
+    a#skills
+    b SKILLS
+  section.panel 
+    a#contact
+    b CONTACT
+  script(src='/javascripts/scrollMagic.js')

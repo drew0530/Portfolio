@@ -1,13 +1,19 @@
 doctype html
 html
   head
-    title= title
+    title='Andrew Williamson - Portfolio'
+    
     link(rel='preconnect' href='https://fonts.googleapis.com')
     link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
     link(href='https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap' rel='stylesheet')
+    
+    link(rel='icon', href='/images/favicon.ico')
     link(rel='stylesheet', href='/stylesheets/style.css')
-    script(src='//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js')
-    script(src='//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js')
-    script(src='/javascripts/scrollMagic.js')
+
+    script(src='//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js')
+    script(src='//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/plugins/animation.gsap.min.js')
+    script(src='http://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js')
+    script(src='//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/plugins/debug.addIndicators.min.js')
+    script(src="https://code.jquery.com/jquery-3.7.1.slim.min.js", integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=", crossorigin="anonymous")
   body
     block content

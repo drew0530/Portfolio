@@ -1,10 +1,11 @@
 var createError = require('http-errors');
 var express = require('express');
-var favicon = require('serve-favicon')
 var path = require('path');
+var favicon = require('serve-favicon')
 var logger = require('morgan');
 var sassMiddleware = require('node-sass-middleware');
 var app = express();
+app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')))
 
 var indexRouter = require('./routes/index');
 
@@ -22,7 +23,6 @@ app.use(sassMiddleware({
   sourceMap: true
 }));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
 
 app.use('/', indexRouter);
 
