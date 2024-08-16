@@ -11,7 +11,8 @@
     "http-errors": "~1.6.3",
     "morgan": "^1.10.0",
     "node-sass-middleware": "1.1.0",
-    "pug": "^2.0.4",
-    "scrollmagic": "^2.0.8"
+    "pug": "^3.0.3",
+    "scrollmagic": "^2.0.8",
+    "serve-favicon": "^2.5.0"
   }
 }
