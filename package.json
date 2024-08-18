@@ -1,6 +1,10 @@
 {
   "name": "portfolio",
   "version": "0.0.0",
+  "homepage": "https://drew0530.github.io/Portfolio",
+  "engines": {
+    "node": "16"
+  },
   "private": true,
   "scripts": {
     "start": "SET DEBUG=portfolio:* & node ./bin/www"
@@ -11,7 +15,8 @@
     "http-errors": "~1.6.3",
     "morgan": "^1.10.0",
     "node-sass-middleware": "1.1.0",
-    "pug": "^2.0.4",
-    "scrollmagic": "^2.0.8"
+    "pug": "^3.0.3",
+    "scrollmagic": "^2.0.8",
+    "serve-favicon": "^2.5.0"
   }
 }

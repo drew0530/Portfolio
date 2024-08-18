@@ -1,0 +1,6 @@
+TODO: figure out why @use is not available to use in sass files
+TODO: implement _variables.sass
+TODO: Create proper readme file
+TODO: Make anchors switch when scrolled to a certain section
+TODO: Animate sticky button container
+TODO: Scroll to section on anchor button click
