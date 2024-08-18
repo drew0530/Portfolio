@@ -8,19 +8,54 @@ block content
     .nav-bar
       a.active(href="#about") About
       a(href="#experience") Experience
-      a(href="#work") Work 
+      a(href="#education") Education
       a(href="#skills") Skills
       a(href="#contact") Contact
   section.panel#about
-    .title-container
+    .panel-container
       #title ANDREW WILLIAMSON
-      #subtitle Senior Full Stack Developer
+      #subtitle Senior Full Stack Engineer
   section.panel#experience
-    b EXPERIENCE
-  section.panel#work
-    b WORK
+    .panel-container
+      .exp 
+        h3 Senior Full-Stack Engineer
+        span John J Jerue, Inc.
+      .exp 
+        h3 Full-Stack Engineer
+        span John J Jerue, Inc.
+      .exp 
+        h3 Junior Full-Stack Engineer
+        span John J Jerue, Inc.
+      .exp 
+        h3 QA Engineer
+        span John J Jerue, Inc.
+  section.panel#education 
+    .school-image
+    .school-title Bachelor of Science - Computer Science 
+    .school-subtitle Florida Polytechnic
   section.panel#skills
-    b SKILLS
+    .skill-group
+      .skill-title Languages
+      .skill Typescript
+      .skill HTML
+      .skill CSS & SASS
+      .skill C#
+      .skill SQL
+    .skill-group
+      .skill-title Frameworks
+      .skill Angular
+      .skill .NET Core / .NET Framework
+      .skill Entity Framework
+      .skill Telerik
+      .skill ExpressJS
+    .skill-group
+      .skill-title Services
+      .skill Azure Devops / Github / TFS
+      .skill NPM / Nuget
+      .skill Swagger API
+      .skill Node
+      .skill Solr
   section.panel#contact
-    b CONTACT
+    .panel-container
+      i.fas.fa-square-phone
   script(src='/javascripts/scrollMagic.js')

@@ -15,7 +15,8 @@ function updateURL(id) {
     }
 }
 
-// -- SCENE CREATION --
+// ----- SCENE CREATIONS -----
+//
 // ABOUT
 var aboutScene = new ScrollMagic.Scene({
     triggerElement: '#about'
@@ -24,67 +25,79 @@ var aboutScene = new ScrollMagic.Scene({
     .setTween(tween)
     .setPin($('#about'), {pushFollowers: false})
     .addIndicators()
-    .setClassToggle('a[href="#about"]', 'active')
     .on('enter', (e) => {
-        console.log('test')
-        console.log(e)
+        $('.active').toggleClass('active')
         this.updateURL('about');
     })
-
+    .setClassToggle('a[href="#about"]', 'active')
+//
 // EXPERIENCE
 var experienceScene = new ScrollMagic.Scene({
     triggerElement: '#experience'
 })
-.addTo(controller)
-.setTween(tween)
-.setPin($('#experience'), {pushFollowers: false})
-.setClassToggle('a[href="#experience"]', 'active')
-.addIndicators()
-.on('enter', (e) => {
-    this.updateURL('experience');
-})
+    .addTo(controller)
+    .setTween(tween)
+    .setPin($('#experience'), {pushFollowers: false})
+    .addIndicators()
+    .on('enter', (e) => {
+        $('.active').toggleClass('active')
+        this.updateURL('experience');
+    })
+    .setClassToggle('a[href="#experience"]', 'active')
 
-// WORK
-var workScene = new ScrollMagic.Scene({
-    triggerElement: '#work'
+var experienceRevealElements = document.getElementsByClassName("");
+for (var i=0; i < experienceRevealElements.length; i++) { // create a scene for each element
+    new ScrollMagic.Scene({
+        triggerElement: experienceRevealElements[i], // y value not modified, so we can use element as trigger as well
+        offset: 50,	// start a little later
+        triggerHook: 0.9,
+    })
+    .setClassToggle(experienceRevealElements[i], "visible") // add class toggle
+    .addIndicators({name: "digit " + (i+1) }) // add indicators (requires plugin)
+    .addTo(controller);
+}
+//
+// EDUCATION
+var educationScene = new ScrollMagic.Scene({
+    triggerElement: '#education'
 })
-.addTo(controller)
-.setTween(tween)
-.setPin($('#work'), {pushFollowers: false})
-.setClassToggle('a[href="#work"]', 'active')
-.addIndicators()
-.on('enter', (e) => {
-    this.updateURL('work');
-})
-
+    .addTo(controller)
+    .setTween(tween)
+    .setPin($('#education'), {pushFollowers: false})
+    .addIndicators()
+    .on('enter', (e) => {
+        $('.active').toggleClass('active')
+        this.updateURL('education');
+    })
+    .setClassToggle('a[href="#education"]', 'active')
+//
 // SKILLS
 var skillsScene = new ScrollMagic.Scene({
     triggerElement: '#skills'
 })
-.addTo(controller)
-.setTween(tween)
-.setPin($('#skills'), {pushFollowers: false})
-.setClassToggle('a[href="#skills"]', 'active')
-.addIndicators()
-.on('enter', (e) => {
-    this.updateURL('skills');
-})
-
+    .addTo(controller)
+    .setTween(tween)
+    .setPin($('#skills'), {pushFollowers: false})
+    .addIndicators()
+    .on('enter', (e) => {
+        $('.active').toggleClass('active')
+        this.updateURL('skills');
+    })
+    .setClassToggle('a[href="#skills"]', 'active')
+//
 // CONTACT
 var contactScene = new ScrollMagic.Scene({
     triggerElement: '#contact'
 })
-.addTo(controller)
-.setTween(tween)
-.setPin($('#contact'), {pushFollowers: false})
-.setClassToggle('a[href="#contact"]', 'active')
-.addIndicators()
-.on('enter', (e) => {
-    this.updateURL('contact');
-})
-
-console.log(contactScene)
-
+    .addTo(controller)
+    .setTween(tween)
+    .setPin($('#contact'), {pushFollowers: false})
+    .addIndicators()
+    .on('enter', (e) => {
+        $('.active').toggleClass('active')
+        this.updateURL('contact');
+    })
+    .setClassToggle('a[href="#contact"]', 'active')
 
 // change behaviour of controller to animate scroll instead of jump
 controller.scrollTo(function (newpos) {
