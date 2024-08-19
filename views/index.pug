@@ -12,50 +12,71 @@ block content
       a(href="#skills") Skills
       a(href="#contact") Contact
   section.panel#about
-    .panel-container
-      #title ANDREW WILLIAMSON
-      #subtitle Senior Full Stack Engineer
+    .panel-container.fx-column
+      h1#name ANDREW WILLIAMSON
+      h2#subtitle Senior Full Stack Engineer
   section.panel#experience
     .panel-container
-      .exp 
-        h3 Senior Full-Stack Engineer
-        span John J Jerue, Inc.
-      .exp 
-        h3 Full-Stack Engineer
-        span John J Jerue, Inc.
-      .exp 
-        h3 Junior Full-Stack Engineer
-        span John J Jerue, Inc.
-      .exp 
-        h3 QA Engineer
-        span John J Jerue, Inc.
-  section.panel#education 
-    .school-image
-    .school-title Bachelor of Science - Computer Science 
-    .school-subtitle Florida Polytechnic
+      #title Experience 
+      div
+        .exp 
+          h3 Senior Full-Stack Engineer
+          span John J Jerue, Inc.
+        .exp 
+          h3 Full-Stack Engineer
+          span John J Jerue, Inc.
+        .exp 
+          h3 Junior Full-Stack Engineer
+          span John J Jerue, Inc.
+        .exp 
+          h3 QA Engineer
+          span John J Jerue, Inc.
+  section.panel#education
+    .panel-container
+      #title Education
+      div
+        .school-image
+        .school-title Bachelor of Science - Computer Science 
+        .school-subtitle Florida Polytechnic
   section.panel#skills
-    .skill-group
-      .skill-title Languages
-      .skill Typescript
-      .skill HTML
-      .skill CSS & SASS
-      .skill C#
-      .skill SQL
-    .skill-group
-      .skill-title Frameworks
-      .skill Angular
-      .skill .NET Core / .NET Framework
-      .skill Entity Framework
-      .skill Telerik
-      .skill ExpressJS
-    .skill-group
-      .skill-title Services
-      .skill Azure Devops / Github / TFS
-      .skill NPM / Nuget
-      .skill Swagger API
-      .skill Node
-      .skill Solr
+    .panel-container
+      #title Skills
+      div
+        .skill-group
+          .skill-title Languages
+          .skill Typescript
+          .skill HTML
+          .skill CSS & SASS
+          .skill C#
+          .skill SQL
+        .skill-group
+          .skill-title Frameworks
+          .skill Angular
+          .skill .NET Core / .NET Framework
+          .skill Entity Framework
+          .skill Telerik
+          .skill ExpressJS
+        .skill-group
+          .skill-title Services
+          .skill Azure Devops / Github / TFS
+          .skill NPM / Nuget
+          .skill Swagger API
+          .skill Node
+          .skill Solr
   section.panel#contact
     .panel-container
-      i.fas.fa-square-phone
+      #title Contact
+      .contact-card
+        i.fas.fa-square-phone
+        div +1 (239) 961-3068
+      .contact-card 
+        i.fab.fa-square-github 
+        div Github 
+      .contact-card 
+        i.fab.fa-linkedin 
+        div LinkedIn
+      .contact-card 
+        i.fas.fa-square-envelope 
+        div Email
+
   script(src='/javascripts/scrollMagic.js')

@@ -11,6 +11,22 @@ body
 
 a
   text-decoration: none
+
+#name
+  color: #FFF
+  text-align: center
+  font-weight: 600
+  font-size: 75px
+  letter-spacing: 10px
+  margin: 0px
+
+#subtitle
+  color: #808080
+  text-align: center
+  font-weight: 400
+  font-size: 30px
+  letter-spacing: 4px
+  margin: 0px
   
 .panel
   height: 100vh
@@ -19,7 +35,20 @@ a
   .panel-container
     height: 100%
     width: 100%
-    align-content: center
+    display: flex
+    flex-direction: row
+    align-items: center
+    justify-content: center
+    #title
+      color: #FFF
+      text-align: center
+      font-weight: 600
+      font-size: 75px
+      letter-spacing: 10px
+      flex: 30
+      text-align: right
+    div
+      flex: 70
 
 .nav-container
   position: sticky
@@ -48,3 +77,9 @@ a
       &.active
         color: #FFF
         background: rgba(92, 94, 105, 0.5) !important
+
+.fx-row
+  flex-direction: row !important
+
+.fx-column
+  flex-direction: column !important
