@@ -1,7 +1,7 @@
 // init controller
 var controller = new ScrollMagic.Controller({
     globalSceneOptions: {
-        triggerHook: 'onLeave',
+        triggerHook: 'onCenter',
         duration: "100%" // this works just fine with duration 0 as well
     }
 });
@@ -45,15 +45,15 @@ var experienceScene = new ScrollMagic.Scene({
     })
     .setClassToggle('a[href="#experience"]', 'active')
 
-var experienceRevealElements = document.getElementsByClassName("");
+var experienceRevealElements = document.getElementsByClassName("exp");
 for (var i=0; i < experienceRevealElements.length; i++) { // create a scene for each element
     new ScrollMagic.Scene({
         triggerElement: experienceRevealElements[i], // y value not modified, so we can use element as trigger as well
-        offset: 50,	// start a little later
-        triggerHook: 0.9,
+        offset: -200,	// start a little later
+        triggerHook: 0
     })
     .setClassToggle(experienceRevealElements[i], "visible") // add class toggle
-    .addIndicators({name: "digit " + (i+1) }) // add indicators (requires plugin)
+    .addIndicators({name: "exp" + (i+1) }) // add indicators (requires plugin)
     .addTo(controller);
 }
 //
@@ -98,6 +98,18 @@ var contactScene = new ScrollMagic.Scene({
         this.updateURL('contact');
     })
     .setClassToggle('a[href="#contact"]', 'active')
+
+var contactRevealElements = document.getElementsByClassName("contact");
+for (var i=0; i < contactRevealElements.length; i++) { // create a scene for each element
+    new ScrollMagic.Scene({
+        triggerElement: contactRevealElements[i], // y value not modified, so we can use element as trigger as well
+        offset: -200,	// start a little later
+        triggerHook: 0
+    })
+    .setClassToggle(contactRevealElements[i], "visible") // add class toggle
+    .addIndicators({name: "contact" + (i+1) }) // add indicators (requires plugin)
+    .addTo(controller);
+}
 
 // change behaviour of controller to animate scroll instead of jump
 controller.scrollTo(function (newpos) {

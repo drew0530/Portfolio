@@ -17,31 +17,31 @@ block content
       h2#subtitle Senior Full Stack Engineer
   section.panel#experience
     .panel-container
-      #title Experience 
-      div
-        .exp 
+      .title Experience 
+      .content
+        .exp.content-card.reveal
           h3 Senior Full-Stack Engineer
           span John J Jerue, Inc.
-        .exp 
+        .exp.content-card.reveal
           h3 Full-Stack Engineer
           span John J Jerue, Inc.
-        .exp 
+        .exp.content-card.reveal
           h3 Junior Full-Stack Engineer
           span John J Jerue, Inc.
-        .exp 
+        .exp.content-card.reveal
           h3 QA Engineer
           span John J Jerue, Inc.
   section.panel#education
     .panel-container
-      #title Education
-      div
+      .title Education
+      .content
         .school-image
         .school-title Bachelor of Science - Computer Science 
         .school-subtitle Florida Polytechnic
   section.panel#skills
     .panel-container
-      #title Skills
-      div
+      .title Skills
+      .content
         .skill-group
           .skill-title Languages
           .skill Typescript
@@ -65,18 +65,22 @@ block content
           .skill Solr
   section.panel#contact
     .panel-container
-      #title Contact
-      .contact-card
-        i.fas.fa-square-phone
-        div +1 (239) 961-3068
-      .contact-card 
-        i.fab.fa-square-github 
-        div Github 
-      .contact-card 
-        i.fab.fa-linkedin 
-        div LinkedIn
-      .contact-card 
-        i.fas.fa-square-envelope 
-        div Email
+      .title Contact
+      .content.cards-container.fx-column
+        .content-card.contact.reveal
+          i.fas.fa-phone
+          a(href="tel:+12399613068", target="_blank") +1 (239) 961-3068
+        .content-card.contact.reveal
+          i.fab.fa-github 
+          a(href="https://github.com/drew0530", target="_blank") Github 
+        .content-card.contact.reveal
+          i.fab.fa-linkedin-in
+          a(href="https://www.linkedin.com/in/drewleewilliamson/", target="_blank") LinkedIn
+        .content-card.contact.reveal
+          i.fas.fa-envelope 
+          a(href="mailto:drew.will0709@gmail.com", target="_blank")  Email
+        .content-card.contact.reveal
+          i.fas.fa-file 
+          a(href="https://docs.google.com/document/d/1sYlzgUZK6HtMN-6PjqhH4PnfeiDwRJJvIrKJiu5j7c4/edit?usp=sharing", target="_blank") Resume
 
   script(src='/javascripts/scrollMagic.js')
