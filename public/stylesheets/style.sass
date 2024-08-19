@@ -1,7 +1,11 @@
 @import 'normalize'
+@import 'animations'
+@import 'variables'
 @import 'stars'
 @import 'about'
 @import 'experience'
+@import 'education'
+@import 'skills'
 @import 'contact'
 
 *
@@ -17,6 +21,10 @@ a
 i
   font-size: 1.5rem
   margin: 10px
+
+em
+  font-size: 0.8rem
+  font-style: italic
 
 #name
   color: #FFF
@@ -46,10 +54,10 @@ i
     align-items: center
     justify-content: center
     .title
+      margin-top: 50px
       color: #FFF
       font-weight: 600
       font-size: 75px
-      letter-spacing: 10px
       flex: 30
       align-self: start
       text-align: right
@@ -57,12 +65,9 @@ i
       flex: 70
 
 .content-card
-    background-color: $color-background-light
+    background-color: $color-gunmetal
     border-radius: 40px
-    height: 75px
-    width: 400px
     display: flex
-    flex-direction: row
     align-items: center 
     margin: 10px
     justify-content: center
@@ -77,7 +82,7 @@ i
 
   .nav-bar
     display: inline-flex
-    background: rgba(52, 53, 59, 0.5)
+    background: $color-jet
     border-radius: 40px
 
     a
@@ -94,7 +99,7 @@ i
       color: #808080
       &.active
         color: #FFF
-        background: rgba(92, 94, 105, 0.5) !important
+        background: $color-davys-gray !important
 
 .fx-row
   flex-direction: row !important

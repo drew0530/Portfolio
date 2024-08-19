@@ -1,8 +1,7 @@
 // init controller
 var controller = new ScrollMagic.Controller({
     globalSceneOptions: {
-        triggerHook: 'onCenter',
-        duration: "100%" // this works just fine with duration 0 as well
+        triggerHook: 'onCenter'
     }
 });
 
@@ -19,7 +18,8 @@ function updateURL(id) {
 //
 // ABOUT
 var aboutScene = new ScrollMagic.Scene({
-    triggerElement: '#about'
+    triggerElement: '#about',
+    duration: '100%'
 })
     .addTo(controller)
     .setTween(tween)
@@ -33,7 +33,8 @@ var aboutScene = new ScrollMagic.Scene({
 //
 // EXPERIENCE
 var experienceScene = new ScrollMagic.Scene({
-    triggerElement: '#experience'
+    triggerElement: '#experience',
+    duration: '100%'
 })
     .addTo(controller)
     .setTween(tween)
@@ -49,8 +50,9 @@ var experienceRevealElements = document.getElementsByClassName("exp");
 for (var i=0; i < experienceRevealElements.length; i++) { // create a scene for each element
     new ScrollMagic.Scene({
         triggerElement: experienceRevealElements[i], // y value not modified, so we can use element as trigger as well
-        offset: -200,	// start a little later
-        triggerHook: 0
+        offset: -150,	// start a little later
+        triggerHook: 0,
+        duration: 0
     })
     .setClassToggle(experienceRevealElements[i], "visible") // add class toggle
     .addIndicators({name: "exp" + (i+1) }) // add indicators (requires plugin)
@@ -59,7 +61,8 @@ for (var i=0; i < experienceRevealElements.length; i++) { // create a scene for 
 //
 // EDUCATION
 var educationScene = new ScrollMagic.Scene({
-    triggerElement: '#education'
+    triggerElement: '#education',
+    duration: '100%'
 })
     .addTo(controller)
     .setTween(tween)
@@ -73,7 +76,8 @@ var educationScene = new ScrollMagic.Scene({
 //
 // SKILLS
 var skillsScene = new ScrollMagic.Scene({
-    triggerElement: '#skills'
+    triggerElement: '#skills',
+    duration: '100%'
 })
     .addTo(controller)
     .setTween(tween)
@@ -84,10 +88,23 @@ var skillsScene = new ScrollMagic.Scene({
         this.updateURL('skills');
     })
     .setClassToggle('a[href="#skills"]', 'active')
+
+var skillsRevealElements = document.getElementsByClassName("skills");
+for (var i=0; i < skillsRevealElements.length; i++) { // create a scene for each element
+    new ScrollMagic.Scene({
+        triggerElement: skillsRevealElements[i], // y value not modified, so we can use element as trigger as well
+        offset: 0,	// start a little later
+        duration: 0
+    })
+    .setClassToggle(skillsRevealElements[i], "visible") // add class toggle
+    .addIndicators({name: "skills" + (i+1) }) // add indicators (requires plugin)
+    .addTo(controller);
+}
 //
 // CONTACT
 var contactScene = new ScrollMagic.Scene({
-    triggerElement: '#contact'
+    triggerElement: '#contact',
+    duration: '100%'
 })
     .addTo(controller)
     .setTween(tween)
@@ -103,8 +120,8 @@ var contactRevealElements = document.getElementsByClassName("contact");
 for (var i=0; i < contactRevealElements.length; i++) { // create a scene for each element
     new ScrollMagic.Scene({
         triggerElement: contactRevealElements[i], // y value not modified, so we can use element as trigger as well
-        offset: -200,	// start a little later
-        triggerHook: 0
+        offset: -150,	// start a little later
+        duration: 0
     })
     .setClassToggle(contactRevealElements[i], "visible") // add class toggle
     .addIndicators({name: "contact" + (i+1) }) // add indicators (requires plugin)
@@ -134,3 +151,8 @@ $(document).on("click", "a[href^='#']", function (e) {
         }
     }
 });
+
+// Pass click event on contact cards to the child link
+$(".contact").click(function(e) {
+    e.currentTarget.lastChild.click();
+})

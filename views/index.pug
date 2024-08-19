@@ -19,67 +19,94 @@ block content
     .panel-container
       .title Experience 
       .content
-        .exp.content-card.reveal
-          h3 Senior Full-Stack Engineer
-          span John J Jerue, Inc.
-        .exp.content-card.reveal
-          h3 Full-Stack Engineer
-          span John J Jerue, Inc.
-        .exp.content-card.reveal
-          h3 Junior Full-Stack Engineer
-          span John J Jerue, Inc.
-        .exp.content-card.reveal
-          h3 QA Engineer
-          span John J Jerue, Inc.
+        .content-card.exp.stack-scroll
+          div
+            h3 Senior Full-Stack Engineer
+            span John J Jerue, Inc.
+            br
+            em December 2020 - Current
+          ul
+            li Planned, tracked, and managed deliverables on 200+ sprints and several long-term deployments
+            li Led design and development of hundreds of new features and updates to a variety of systems, improving performance and user experience
+            li Created and managed several CI/CD pipelines that allowed for rapid development, testing, and deployment to multiple environments
+        .content-card.exp.stack-scroll
+          div
+            h3 Full-Stack Engineer
+            span John J Jerue, Inc.
+            br
+            em January 2018 - December 2020
+          ul 
+            li Created elegant and intuitive UI/UX systems to improve workflow and ease of use
+            li Completed the release of a total migration from AngularJS and .NET Framework to Angular and .NET Core
+            li Created complex Web APIs using .NET Core and Entity Framework that interact with several integrations from third-party services and APIs
+        .content-card.exp.stack-scroll
+          div
+            h3 Junior Full-Stack Engineer
+            span John J Jerue, Inc.
+            br
+            em January 2018 - December 2020
+          ul
+            li Updated existing systems to modern design standards, redesigning the UI and converting to Material Design
+            li Provided Tier-2 support for users, fixing bugs and developing short-term deliverables and features
+            li Created detailed financial reporting on the data present within the system, and created an intuitive UI to provide these reports
+        .content-card.exp.stack-scroll
+          div
+            h3 QA Engineer
+            span John J Jerue, Inc.
+            br
+            em October 2017 - January 2018
+          ul
+            li Performed, end-to-end, regression, and component tests on Angular-based web and mobile applications.
   section.panel#education
     .panel-container
       .title Education
       .content
-        .school-image
-        .school-title Bachelor of Science - Computer Science 
-        .school-subtitle Florida Polytechnic
+        .content-card.education
+          .school-image
+          .school-title Bachelor of Science - Computer Science 
+          .school-subtitle Florida Polytechnic
   section.panel#skills
     .panel-container
       .title Skills
       .content
-        .skill-group
-          .skill-title Languages
-          .skill Typescript
-          .skill HTML
-          .skill CSS & SASS
-          .skill C#
-          .skill SQL
-        .skill-group
-          .skill-title Frameworks
-          .skill Angular
-          .skill .NET Core / .NET Framework
-          .skill Entity Framework
-          .skill Telerik
-          .skill ExpressJS
-        .skill-group
-          .skill-title Services
-          .skill Azure Devops / Github / TFS
-          .skill NPM / Nuget
-          .skill Swagger API
-          .skill Node
-          .skill Solr
+        .content-card.skills.reveal-up
+          h3.skill-title Languages
+          p Typescript
+          p HTML
+          p CSS & SASS
+          p C#
+          p SQL
+        .content-card.skills.reveal-up
+          h3.skill-title Frameworks
+          p Angular
+          p .NET Core / .NET Framework
+          p Entity Framework
+          p Telerik
+          p ExpressJS
+        .content-card.skills.reveal-up
+          h3.skill-title Services
+          p Azure Devops / Github / TFS
+          p NPM / Nuget
+          p Swagger API
+          p Node
+          p Solr
   section.panel#contact
     .panel-container
       .title Contact
-      .content.cards-container.fx-column
-        .content-card.contact.reveal
+      .content.fx-column
+        .content-card.contact.reveal-right
           i.fas.fa-phone
           a(href="tel:+12399613068", target="_blank") +1 (239) 961-3068
-        .content-card.contact.reveal
+        .content-card.contact.reveal-right
           i.fab.fa-github 
           a(href="https://github.com/drew0530", target="_blank") Github 
-        .content-card.contact.reveal
+        .content-card.contact.reveal-right
           i.fab.fa-linkedin-in
           a(href="https://www.linkedin.com/in/drewleewilliamson/", target="_blank") LinkedIn
-        .content-card.contact.reveal
+        .content-card.contact.reveal-right
           i.fas.fa-envelope 
           a(href="mailto:drew.will0709@gmail.com", target="_blank")  Email
-        .content-card.contact.reveal
+        .content-card.contact.reveal-right
           i.fas.fa-file 
           a(href="https://docs.google.com/document/d/1sYlzgUZK6HtMN-6PjqhH4PnfeiDwRJJvIrKJiu5j7c4/edit?usp=sharing", target="_blank") Resume
 
