@@ -46,18 +46,37 @@ var experienceScene = new ScrollMagic.Scene({
     })
     .setClassToggle('a[href="#experience"]', 'active')
 
-var experienceRevealElements = document.getElementsByClassName("exp");
-for (var i=0; i < experienceRevealElements.length; i++) { // create a scene for each element
-    new ScrollMagic.Scene({
-        triggerElement: experienceRevealElements[i], // y value not modified, so we can use element as trigger as well
-        offset: -150,	// start a little later
-        triggerHook: 0,
-        duration: 0
-    })
-    .setClassToggle(experienceRevealElements[i], "visible") // add class toggle
-    .addIndicators({name: "exp" + (i+1) }) // add indicators (requires plugin)
-    .addTo(controller);
-}
+let cards = gsap.utils.toArray(".stackCard");
+
+let stickDistance = 0;
+
+let firstCardST = ScrollTrigger.create({
+    trigger: cards[0],
+    start: "center center"
+});
+
+let lastCardST = ScrollTrigger.create({
+    trigger: cards[cards.length-1],
+    start: "center center"
+});
+
+cards.forEach((card, index) => {
+
+    var scale = 1 - (cards.length - index) * 0.025;
+    let scaleDown = gsap.to(card, {scale: scale, 'transform-origin': '"50% '+ (lastCardST.start + stickDistance) +'"' });
+
+    ScrollTrigger.create({
+    trigger: card,
+    start: "center center",
+    end: () => lastCardST.start + stickDistance,
+    pin: true,
+    markers: true,
+    pinSpacing: false,
+    ease: "none",
+    animation: scaleDown,
+    toggleActions: "restart none none reverse"
+    });
+});
 //
 // EDUCATION
 var educationScene = new ScrollMagic.Scene({
