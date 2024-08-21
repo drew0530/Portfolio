@@ -1,12 +1,14 @@
 // init controller
 var controller = new ScrollMagic.Controller({
     globalSceneOptions: {
-        triggerHook: 'onCenter'
+        triggerHook: 'onLeave'
     }
 });
 
-// build tween
-var tween = TweenMax.from("#animate", 0.5, {autoAlpha: 0, scale: 0.7});
+// change behaviour of controller to animate scroll instead of jump
+controller.scrollTo(function (newpos) {
+    TweenMax.to(window, 0.5, {scrollTo: {y: newpos}});
+})
 
 function updateURL(id) {
     if(history.pushState) {
@@ -22,7 +24,6 @@ var aboutScene = new ScrollMagic.Scene({
     duration: '100%'
 })
     .addTo(controller)
-    .setTween(tween)
     .setPin($('#about'), {pushFollowers: false})
     .addIndicators()
     .on('enter', (e) => {
@@ -37,7 +38,6 @@ var experienceScene = new ScrollMagic.Scene({
     duration: '100%'
 })
     .addTo(controller)
-    .setTween(tween)
     .setPin($('#experience'), {pushFollowers: false})
     .addIndicators()
     .on('enter', (e) => {
@@ -61,37 +61,42 @@ let lastCardST = ScrollTrigger.create({
 });
 
 cards.forEach((card, index) => {
-
     var scale = 1 - (cards.length - index) * 0.025;
     let scaleDown = gsap.to(card, {scale: scale, 'transform-origin': '"50% '+ (lastCardST.start + stickDistance) +'"' });
 
     ScrollTrigger.create({
-    trigger: card,
-    start: "center center",
-    end: () => lastCardST.start + stickDistance,
-    pin: true,
-    markers: true,
-    pinSpacing: false,
-    ease: "none",
-    animation: scaleDown,
-    toggleActions: "restart none none reverse"
+        trigger: card,
+        start: "center center",
+        end: () => lastCardST.start + stickDistance,
+        pin: true,
+        markers: true,
+        pinSpacing: false,
+        ease: "none",
+        animation: scaleDown,
+        toggleActions: "restart none none reverse"
     });
 });
 //
 // EDUCATION
+
+var wipeAnimation = new TimelineMax()
+    .fromTo("#poly-straight-pink",    1, {y:  "100%"}, {y: "0%", ease: "power4.out"})  // in from bottom
+    .fromTo("#poly-straight-dark-blue", 1, {y: "100%"}, {y: "0%", ease: "power4.out"}); // in from bottom
+
 var educationScene = new ScrollMagic.Scene({
-    triggerElement: '#education',
-    duration: '100%'
+    triggerElement: "#education",
+    triggerHook: "onCenter",
+    duration: "300%"
 })
     .addTo(controller)
-    .setTween(tween)
-    .setPin($('#education'), {pushFollowers: false})
-    .addIndicators()
+    .setPin("#education")
+    .setTween(wipeAnimation)
+    .addIndicators() // add indicators (requires plugin)
     .on('enter', (e) => {
         $('.active').toggleClass('active')
         this.updateURL('education');
     })
-    .setClassToggle('a[href="#education"]', 'active')
+    .setClassToggle('a[href="#education"]', 'active');
 //
 // SKILLS
 var skillsScene = new ScrollMagic.Scene({
@@ -99,7 +104,6 @@ var skillsScene = new ScrollMagic.Scene({
     duration: '100%'
 })
     .addTo(controller)
-    .setTween(tween)
     .setPin($('#skills'), {pushFollowers: false})
     .addIndicators()
     .on('enter', (e) => {
@@ -126,7 +130,6 @@ var contactScene = new ScrollMagic.Scene({
     duration: '100%'
 })
     .addTo(controller)
-    .setTween(tween)
     .setPin($('#contact'), {pushFollowers: false})
     .addIndicators()
     .on('enter', (e) => {
@@ -146,11 +149,6 @@ for (var i=0; i < contactRevealElements.length; i++) { // create a scene for eac
     .addIndicators({name: "contact" + (i+1) }) // add indicators (requires plugin)
     .addTo(controller);
 }
-
-// change behaviour of controller to animate scroll instead of jump
-controller.scrollTo(function (newpos) {
-    TweenMax.to(window, 0.5, {scrollTo: {y: newpos}});
-})
 
 //  bind scroll to anchor links
 $(document).on("click", "a[href^='#']", function (e) {
