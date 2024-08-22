@@ -24,63 +24,71 @@ var aboutScene = new ScrollMagic.Scene({
     duration: '100%'
 })
     .addTo(controller)
-    .setPin($('#about'), {pushFollowers: false})
-    .addIndicators()
+    .setPin($('#about'))
+    .addIndicators({name: 'about'})
     .on('enter', (e) => {
         $('.active').toggleClass('active')
         this.updateURL('about');
     })
     .setClassToggle('a[href="#about"]', 'active')
+
+var imgs = gsap.utils.toArray(".subtitle")
+var next = 1.5; // time to change
+function crossfade(){
+  var action = gsap.timeline()
+    .to(imgs,  {y:'-=36', duration:1})
+    .to(imgs[0], {y:'+=144', duration:0}) // the first to the end
+  imgs.push( imgs.shift() ); // the first (shift) to the end (push) from the array
+  // recursive
+  gsap.delayedCall(next, crossfade);
+}
+gsap.delayedCall(next, crossfade);
 //
 // EXPERIENCE
 var experienceScene = new ScrollMagic.Scene({
     triggerElement: '#experience',
-    duration: '100%'
+    duration: '300%'
 })
     .addTo(controller)
-    .setPin($('#experience'), {pushFollowers: false})
-    .addIndicators()
+    .setPin('#experience')
+    .addIndicators({name: 'experience'})
     .on('enter', (e) => {
         $('.active').toggleClass('active')
         this.updateURL('experience');
     })
     .setClassToggle('a[href="#experience"]', 'active')
 
-let cards = gsap.utils.toArray(".stackCard");
+// let cards = gsap.utils.toArray(".stack-card");
+// let stickDistance = 0;
 
-let stickDistance = 0;
+// let firstCardST = ScrollTrigger.create({
+//     trigger: cards[0],
+//     start: "center center"
+// });
+// let lastCardST = ScrollTrigger.create({
+//     trigger: cards[cards.length-1],
+//     start: "center center"
+// });
+// cards.forEach((card, index) => {
+//     var scale = 1 - (cards.length - index) * 0.025;
+//     let scaleDown = gsap.to(card, {scale: scale, 'transform-origin': '"50% '+ (lastCardST.start + stickDistance) +'"' });
 
-let firstCardST = ScrollTrigger.create({
-    trigger: cards[0],
-    start: "center center"
-});
-
-let lastCardST = ScrollTrigger.create({
-    trigger: cards[cards.length-1],
-    start: "center center"
-});
-
-cards.forEach((card, index) => {
-    var scale = 1 - (cards.length - index) * 0.025;
-    let scaleDown = gsap.to(card, {scale: scale, 'transform-origin': '"50% '+ (lastCardST.start + stickDistance) +'"' });
-
-    ScrollTrigger.create({
-        trigger: card,
-        start: "center center",
-        end: () => lastCardST.start + stickDistance,
-        pin: true,
-        markers: true,
-        pinSpacing: false,
-        ease: "none",
-        animation: scaleDown,
-        toggleActions: "restart none none reverse"
-    });
-});
+//     ScrollTrigger.create({
+//         trigger: card,
+//         start: "center center",
+//         end: () => lastCardST.start + stickDistance,
+//         pin: true,
+//         markers: true,
+//         pinSpacing: false,
+//         ease: "none",
+//         animation: scaleDown,
+//         toggleActions: "restart none none reverse"
+//     });
+// });
 //
 // EDUCATION
-
 var wipeAnimation = new TimelineMax()
-    .fromTo("#poly-straight-pink",    1, {y:  "100%"}, {y: "0%", ease: "power4.out"})  // in from bottom
+    .fromTo("#poly-straight-pink", 1, {y:  "100%"}, {y: "0%", ease: "power4.out"})  // in from bottom
     .fromTo("#poly-straight-dark-blue", 1, {y: "100%"}, {y: "0%", ease: "power4.out"}); // in from bottom
 
 var educationScene = new ScrollMagic.Scene({
@@ -91,7 +99,7 @@ var educationScene = new ScrollMagic.Scene({
     .addTo(controller)
     .setPin("#education")
     .setTween(wipeAnimation)
-    .addIndicators() // add indicators (requires plugin)
+    .addIndicators({name: 'education'}) // add indicators (requires plugin)
     .on('enter', (e) => {
         $('.active').toggleClass('active')
         this.updateURL('education');
@@ -105,22 +113,23 @@ var skillsScene = new ScrollMagic.Scene({
 })
     .addTo(controller)
     .setPin($('#skills'), {pushFollowers: false})
-    .addIndicators()
+    .addIndicators({name: 'skills'})
     .on('enter', (e) => {
         $('.active').toggleClass('active')
         this.updateURL('skills');
     })
     .setClassToggle('a[href="#skills"]', 'active')
 
-var skillsRevealElements = document.getElementsByClassName("skills");
-for (var i=0; i < skillsRevealElements.length; i++) { // create a scene for each element
+let skillElements = gsap.utils.toArray(".skills")
+
+for (var i=0; i < skillElements.length; i++) { // create a scene for each element
     new ScrollMagic.Scene({
-        triggerElement: skillsRevealElements[i], // y value not modified, so we can use element as trigger as well
-        offset: 0,	// start a little later
+        triggerElement: skillElements[i], // y value not modified, so we can use element as trigger as well
+        offset: -150,	// start a little later
         duration: 0
     })
-    .setClassToggle(skillsRevealElements[i], "visible") // add class toggle
-    .addIndicators({name: "skills" + (i+1) }) // add indicators (requires plugin)
+    .setClassToggle(skillElements[i], "visible") // add class toggle
+    .addIndicators({name: "skillCard " + (i+1) }) // add indicators (requires plugin)
     .addTo(controller);
 }
 //
@@ -131,7 +140,7 @@ var contactScene = new ScrollMagic.Scene({
 })
     .addTo(controller)
     .setPin($('#contact'), {pushFollowers: false})
-    .addIndicators()
+    .addIndicators({name: 'contact'})
     .on('enter', (e) => {
         $('.active').toggleClass('active')
         this.updateURL('contact');
