@@ -1,0 +1,23 @@
+#skills .content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+#skills .content .content-card {
+  padding-bottom: 30px;
+  height: 350px;
+  width: 300px;
+  flex-direction: column;
+}
+#skills .content .content-card .skill-title {
+  margin-bottom: 20px;
+}
+#skills .content .content-card p {
+  margin-bottom: 10px;
+}
+#skills .content .content-card:nth-child(2) {
+  margin-top: 50px;
+}
+#skills .content .content-card:nth-child(3) {
+  margin-top: 100px;
+}

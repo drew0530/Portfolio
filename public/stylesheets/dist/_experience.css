@@ -1,0 +1,39 @@
+#experience .content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+#experience .content .stack-container {
+  position: relative;
+  align-items: center;
+  height: 350px;
+  width: 80%;
+  perspective: 80px;
+}
+#experience .content .stack-container .stack-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  height: 350px;
+  width: 100%;
+  border-radius: 30px;
+  padding: 60px 35px;
+}
+#experience .content .stack-container .stack-card:nth-child(1) {
+  left: 0px;
+  top: 0px;
+}
+#experience .content .stack-container .stack-card:nth-child(2) {
+  left: -20px;
+  top: 20px;
+}
+#experience .content .stack-container .stack-card:nth-child(3) {
+  left: -40px;
+  top: 40px;
+}
+#experience .content .stack-container .stack-card:nth-child(4) {
+  left: -60px;
+  top: 60px;
+}

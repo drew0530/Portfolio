@@ -1,12 +1,28 @@
+@mixin offset
+  @for $i from 1 through 4
+    &:nth-child(#{$i})
+      left: #{($i - 1) * -20}px
+      top: #{($i - 1) * 20}px
+
 #experience
   .content
-    overflow: hidden;
-    padding: 60px 0
-
-  .stack-card
-    border-radius: 30px
-    position: relative
-    width: 100%
-    min-height: 450px
-    padding: 60px 35px
-    transform-origin: 50% -100%
+    display: flex
+    justify-content: center
+    align-items: center
+    height: 100%
+    .stack-container
+      position: relative
+      align-items: center
+      height: 350px
+      width: 80%
+      perspective: 80px // try playing with this
+      .stack-card
+        display: flex
+        justify-content: space-between
+        align-items: center
+        position: absolute
+        height: 350px
+        width: 100%
+        border-radius: 30px
+        padding: 60px 35px
+        @include offset
