@@ -75,27 +75,37 @@ function crossfade() {
 gsap.delayedCall(next, crossfade);
 //
 // EXPERIENCE
+// Stack of experience cards w/ Flip
+const stackContainer = document.querySelector(".stack-container");
+const stackCards = gsap.utils.toArray(".stack-card");
+const experienceTimeline = new TimelineMax()
+    .fromTo('#SFSE', {x: '0px', y: '0px', opacity: 1}, {x: '-20px', y: '20px', opacity: 0})
+    .fromTo('.stack-card', {x: '0px', y: '0px'},  {x: '-20px', y: '20px'}, '<+=.3')
+    .fromTo('#FSE', {x: '0px', y: '0px', opacity: 1}, {x: '-20px', y: '20px', opacity: 0})
+    .fromTo('.stack-card', {x: '0px', y: '0px'},  {x: '-20px', y: '20px'}, '<+=.3')
+    .fromTo('#JFSE', {x: '0px', y: '0px', opacity: 1}, {x: '-20px', y: '20px', opacity: 0})
+    .fromTo('.stack-card', {x: '0px', y: '0px'},  {x: '-20px', y: '20px'}, '<+=.3')
+    .fromTo('#QAE', {x: '0px', y: '0px', opacity: 1}, {x: '-20px', y: '20px', opacity: 0})
+    .fromTo('.stack-card', {x: '0px', y: '0px'},  {x: '-20px', y: '20px'}, '<+=.3')
+
+stackCards.forEach((sc) => {
+    var scene = new ScrollTrigger({
+        
+    })
+})
 const experienceScene = new ScrollMagic.Scene({
 	triggerElement: "#experience",
 	duration: "200%",
 })
 	.addTo(controller)
 	.setPin("#experience")
+    .setTween(experienceTimeline)
 	.addIndicators({ name: "experience" })
 	.on("enter", () => {
 		$(".active").toggleClass("active");
 		this.updateURL("experience");
 	})
 	.setClassToggle('a[href="#experience"]', "active");
-
-// Stack of experience cards w/ Flip
-const stackContainer = document.querySelector(".stack-container");
-const stackCards = gsap.utils.toArray(".stack-card");
-//   .fromTo('#SFSE', , {y:'0', x:'0', opacity: 1}, {y:'20px', x:'-20px', opacity: 0})
-
-// for(let i = 0; i < stackCards.length; i++) {
-
-// }
 
 // function moveCard() {
 // 	const lastCard = slider.querySelector(".stack-card:last-child");
@@ -109,35 +119,37 @@ const stackCards = gsap.utils.toArray(".stack-card");
 // 	}
 // }
 
-// let state = Flip.getState(".stack-card");
+// function onScroll() {
+// 	let state = Flip.getState(".stack-card");
 
-// moveCard();
+// 	moveCard();
 
-// Flip.from(state, {
-// 	targets: ".stack-card",
-// 	ease: "sine.inOut",
-// 	absolute: true,
-// 	onEnter: (elements) => {
-// 		return gsap.from(elements, {
-// 			yPercent: 20,
-// 			opacity: 0,
-// 			ease: "sine.out",
-// 		});
-// 	},
-// 	onLeave: (element) => {
-// 		return gsap.to(element, {
-// 			yPercent: 20,
-// 			xPercent: -20,
-// 			transformOrigin: "bottom left",
-// 			opacity: 0,
-// 			ease: "sine.out",
-// 			onComplete() {
-// 				console.log("logging", element[0]);
-// 				stackContainer.removeChild(element[0]);
-// 			},
-// 		});
-// 	},
-// });
+// 	Flip.from(state, {
+// 		targets: ".stack-card",
+// 		ease: "sine.inOut",
+// 		absolute: true,
+// 		onEnter: (elements) => {
+// 			return gsap.from(elements, {
+// 				yPercent: 20,
+// 				opacity: 0,
+// 				ease: "sine.out",
+// 			});
+// 		},
+// 		onLeave: (element) => {
+// 			return gsap.to(element, {
+// 				yPercent: 20,
+// 				xPercent: -20,
+// 				transformOrigin: "bottom left",
+// 				opacity: 0,
+// 				ease: "sine.out",
+// 				onComplete() {
+// 					console.log("logging", element[0]);
+// 					stackContainer.removeChild(element[0]);
+// 				},
+// 			});
+// 		},
+// 	});
+// }
 
 // EDUCATION
 const educationTimeline = new TimelineMax()
