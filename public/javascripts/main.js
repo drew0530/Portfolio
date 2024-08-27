@@ -47,12 +47,18 @@ $(".contact").click(function (e) {
 // ----- SCENE CREATIONS -----
 //
 // ABOUT
+const aboutTimeline = new TimelineMax()
+    .add("shiftUp")
+    .fromTo(['#name', '.subtitle-container'], {y: 0}, {y: -50, ease: 'power1.InOut'}, "shiftUp")
+    .fromTo('.summary', {opacity: 0, y: 100}, {opacity: 1, y: 0, ease: 'power1.InOut', delay: 0.1}, "shiftUp")
+    // .to('#about .panel-container', {scale: 0.5, opacity: 0})
 var aboutScene = new ScrollMagic.Scene({
 	triggerElement: "#about",
 	duration: "100%",
 })
 	.addTo(controller)
 	.setPin("#about")
+    .setTween(aboutTimeline)
 	.addIndicators({ name: "about" })
 	.on("enter", () => {
 		$(".active").toggleClass("active");
@@ -76,23 +82,20 @@ gsap.delayedCall(next, crossfade);
 //
 // EXPERIENCE
 // Stack of experience cards w/ Flip
-const stackContainer = document.querySelector(".stack-container");
-const stackCards = gsap.utils.toArray(".stack-card");
 const experienceTimeline = new TimelineMax()
-    .fromTo('#SFSE', {x: '0px', y: '0px', opacity: 1}, {x: '-20px', y: '20px', opacity: 0})
-    .fromTo('.stack-card', {x: '0px', y: '0px'},  {x: '-20px', y: '20px'}, '<+=.3')
-    .fromTo('#FSE', {x: '0px', y: '0px', opacity: 1}, {x: '-20px', y: '20px', opacity: 0})
-    .fromTo('.stack-card', {x: '0px', y: '0px'},  {x: '-20px', y: '20px'}, '<+=.3')
-    .fromTo('#JFSE', {x: '0px', y: '0px', opacity: 1}, {x: '-20px', y: '20px', opacity: 0})
-    .fromTo('.stack-card', {x: '0px', y: '0px'},  {x: '-20px', y: '20px'}, '<+=.3')
-    .fromTo('#QAE', {x: '0px', y: '0px', opacity: 1}, {x: '-20px', y: '20px', opacity: 0})
-    .fromTo('.stack-card', {x: '0px', y: '0px'},  {x: '-20px', y: '20px'}, '<+=.3')
+    .add("SFSEMove")
+    .fromTo('#SFSE', {x: '0px', y: '0px', opacity: 1}, {x: '-40px', y: '40px', opacity: 0}, "SFSEMove")
+    .fromTo('.stack-card:not(#SFSE)', {x: '0px', y: '0px'},  {x: '-20px', y: '20px'}, "SFSEMove")
+    .add("FSEMove")
+    .to('#FSE', {x: '-60px', y: '60px', opacity: 0}, "FSEMove")
+    .to('.stack-card:not(#FSE)', {x: '-40px', y: '40px'}, "FSEMove")
+    .add("JFSEMove")
+    .to('#JFSE', {x: '-80px', y: '80px', opacity: 0}, "JFSEMove")
+    .to('.stack-card:not(#JFSE)', {x: '-60px', y: '60px'}, 'JFSEMove')
+    .add("QAEMove")
+    .to('#QAE', {x: '-100px', y: '100px', opacity: 0}, "QAEMove")
+    .to('.stack-card:not(#QAE)', {x: '-80px', y: '80px'}, 'QAEMove')
 
-stackCards.forEach((sc) => {
-    var scene = new ScrollTrigger({
-        
-    })
-})
 const experienceScene = new ScrollMagic.Scene({
 	triggerElement: "#experience",
 	duration: "200%",
@@ -106,50 +109,6 @@ const experienceScene = new ScrollMagic.Scene({
 		this.updateURL("experience");
 	})
 	.setClassToggle('a[href="#experience"]', "active");
-
-// function moveCard() {
-// 	const lastCard = slider.querySelector(".stack-card:last-child");
-
-// 	if (stackContainer && lastCard) {
-// 		lastCard.style.display = "none"; // Hide the last item
-// 		const newCard = document.createElement("div");
-// 		newCard.className = lastCard.className; // Set the same class name
-// 		newCard.textContent = lastCard.textContent; // Copy the text content
-// 		stackContainer.insertBefore(newCard, stackContainer.firstChild); // Insert the new item at the beginning of the slider
-// 	}
-// }
-
-// function onScroll() {
-// 	let state = Flip.getState(".stack-card");
-
-// 	moveCard();
-
-// 	Flip.from(state, {
-// 		targets: ".stack-card",
-// 		ease: "sine.inOut",
-// 		absolute: true,
-// 		onEnter: (elements) => {
-// 			return gsap.from(elements, {
-// 				yPercent: 20,
-// 				opacity: 0,
-// 				ease: "sine.out",
-// 			});
-// 		},
-// 		onLeave: (element) => {
-// 			return gsap.to(element, {
-// 				yPercent: 20,
-// 				xPercent: -20,
-// 				transformOrigin: "bottom left",
-// 				opacity: 0,
-// 				ease: "sine.out",
-// 				onComplete() {
-// 					console.log("logging", element[0]);
-// 					stackContainer.removeChild(element[0]);
-// 				},
-// 			});
-// 		},
-// 	});
-// }
 
 // EDUCATION
 const educationTimeline = new TimelineMax()
@@ -168,7 +127,6 @@ const educationTimeline = new TimelineMax()
 
 const educationScene = new ScrollMagic.Scene({
 	triggerElement: "#education",
-	triggerHook: "onCenter",
 	duration: "200%",
 })
 	.addTo(controller)
@@ -184,27 +142,13 @@ const educationScene = new ScrollMagic.Scene({
 // SKILLS
 const skillsTimeline = new TimelineMax()
 	.fromTo(
-		"#Languages",
-		0.3,
+		".skills",
 		{ y: "100px", opacity: 0 },
-		{ y: "0px", opacity: 1, ease: "power3.InOut" }
+		{ y: "0px", opacity: 1, ease: "power3.InOut", stagger: 0.3 }
 	)
-	.fromTo(
-		"#Frameworks",
-		0.3,
-		{ y: "100px", opacity: 0 },
-		{ y: "0px", opacity: 1, ease: "power3.InOut" }
-	)
-	.fromTo(
-		"#Services",
-		0.3,
-		{ y: "100px", opacity: 0 },
-		{ y: "0px", opacity: 1, ease: "power3.InOut" }
-	);
 
 const skillsScene = new ScrollMagic.Scene({
 	triggerElement: "#skills",
-	triggerHook: "onCenter",
 	duration: "100%",
 })
 	.addTo(controller)
@@ -220,35 +164,10 @@ const skillsScene = new ScrollMagic.Scene({
 // CONTACT
 const contactTimeline = new TimelineMax()
 	.fromTo(
-		"#Phone",
-		0.2,
-		{ x: "100px", opacity: 0 },
-		{ x: "0px", opacity: 1, ease: "power3.InOut" }
+		".contact",
+		{ x: "150px", opacity: 0 },
+		{ x: "0px", opacity: 1, ease: "power3.InOut", stagger: '0.2' }
 	)
-	.fromTo(
-		"#Github",
-		0.2,
-		{ x: "100px", opacity: 0 },
-		{ x: "0px", opacity: 1, ease: "power3.InOut" }
-	)
-	.fromTo(
-		"#Linkedin",
-		0.2,
-		{ x: "100px", opacity: 0 },
-		{ x: "0px", opacity: 1, ease: "power3.InOut" }
-	)
-	.fromTo(
-		"#Email",
-		0.2,
-		{ x: "100px", opacity: 0 },
-		{ x: "0px", opacity: 1, ease: "power3.InOut" }
-	)
-	.fromTo(
-		"#Resume",
-		0.2,
-		{ x: "100px", opacity: 0 },
-		{ x: "0px", opacity: 1, ease: "power3.InOut" }
-	);
 
 const contactScene = new ScrollMagic.Scene({
 	triggerElement: "#contact",

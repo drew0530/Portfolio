@@ -1,5 +1,5 @@
 @mixin offset
-  @for $i from 1 through 4
+  @for $i from 4 through 1
     &:nth-child(#{$i})
       left: #{($i - 1) * -20}px
       top: #{($i - 1) * 20}px
@@ -15,7 +15,7 @@
       align-items: center
       height: 350px
       width: 80%
-      perspective: 80px // try playing with this
+      perspective: 100px // try playing with this
       .stack-card
         display: flex
         justify-content: space-between
@@ -26,3 +26,11 @@
         border-radius: 30px
         padding: 60px 35px
         @include offset
+      .job-title
+        display: flex
+        flex-basis: 50%
+        flex-direction: column
+      li
+        display: flex
+        flex-basis: 50%
+        font-size: 1.15rem
