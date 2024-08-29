@@ -72,33 +72,63 @@ block content
           #poly-straight-pink.school-image
           #poly-straight-dark-blue.school-image
         .degree-container.col-6.d-flex.justify-content-center.flex-column
-          h4 Bachelor of Science ~ Computer Science 
-          h6 Florida Polytechnic University ~ 2014 - 2018
+          h4 Bachelor of Science - Computer Science 
+          h6 Florida Polytechnic University 2014 - 2018
   section#skills
     .panel-container
       .title.col-3 Skills
       .content.col-9
-        .content-card.skills
-          h3.skill-title Languages
-          p JS / TS
-          p HTML / Pug
-          p CSS / SASS / SCSS
-          p C#
-          p SQL
-        .content-card.skills
-          h3.skill-title Frameworks
-          p Angular
-          p .NET Core / Framework
-          p Entity Framework
-          p Telerik
-          p ExpressJS
-        .content-card.skills
-          h3.skill-title Services
-          p Azure Devops / Github / TFS
-          p NPM / Nuget
-          p Swagger API
-          p Node
-          p Solr
+        .skill-container#frontend
+          h3.skill-title Frontend
+          .skill 
+            img#typescript.skill-icon(src="./images/typescript.svg")
+            .skill-text Typescript
+          .skill 
+            img#html.skill-icon(src="./images/html5.svg")
+            .skill-text HTML
+          .skill
+            img#sass.skill-icon(src="./images/sass.svg")
+            .skill-text SASS
+          .skill
+            img#expressjs.skill-icon(src="./images/expressjs.svg")
+            .skill-text ExpressJS
+          .skill
+            img#angular.skill-icon(src="./images/angular.svg")
+            .skill-text Angular
+        .skill-container#backend
+          h3.skill-title Backend
+          .skill
+            img#csharp.skill-icon(src="./images/csharp.svg")
+            .skill-text C#
+          .skill
+            img#sql.skill-icon(src="./images/sql-server.svg")
+            .skill-text SQL
+          .skill
+            img#dotnetcore.skill-icon(src="./images/dot-net-core.svg")
+            .skill-text .NET Core
+          .skill
+            img#entityframework.skill-icon(src="./images/entity-framework.svg")
+            .skill-text Entity Framework
+          .skill
+            img#node.skill-icon(src="./images/nodejs.svg")
+            .skill-text Node
+        .skill-container#tools
+          h3.skill-title Tools
+          .skill
+            img#github.skill-icon(src="./images/github.svg")
+            .skill-text Github
+          .skill
+            img#npm.skill-icon(src="./images/npm.svg")
+            .skill-text NPM
+          .skill
+            img#bootstrap.skill-icon(src="./images/bootstrap.svg")
+            .skill-text Bootstrap
+          .skill
+            img#telerik.skill-icon(src="./images/kendo.svg")
+            .skill-text Telerik
+          .skill
+            img#swagger.skill-icon(src="./images/swagger.svg")
+            .skill-text Swagger API
   section#contact
     .panel-container.d-flex
       .title.col-3 Contact

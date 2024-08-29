@@ -141,15 +141,50 @@ const educationScene = new ScrollMagic.Scene({
 //
 // SKILLS
 const skillsTimeline = new TimelineMax()
+    .add('frontend')
+    .fromTo(
+        "#frontend",
+        { y: "-100px", opacity: 0 },
+        { y: "0px", opacity: 1, stagger: 0.3 },
+        "frontend"
+    )
 	.fromTo(
-		".skills",
+		"#frontend .skill",
 		{ y: "100px", opacity: 0 },
-		{ y: "0px", opacity: 1, ease: "power3.InOut", stagger: 0.3 }
+		{ y: "0px", opacity: 1, ease: "power3.InOut", stagger: 0.2 },
+        "frontend"
 	)
+    .add('backend')
+    .fromTo(
+        "#backend",
+        { y: "-100px", opacity: 0 },
+        { y: "0px", opacity: 1, stagger: 0.3 },
+        "backend"
+    )
+	.fromTo(
+		"#backend .skill",
+		{ y: "100px", opacity: 0 },
+		{ y: "0px", opacity: 1, ease: "power3.InOut", stagger: 0.2 },
+        "backend"
+	)
+    .add('tools')
+    .fromTo(
+        "#tools",
+        { y: "-100px", opacity: 0 },
+        { y: "0px", opacity: 1, stagger: 0.3 },
+        "tools"
+    )
+	.fromTo(
+		"#tools .skill",
+		{ y: "100px", opacity: 0 },
+		{ y: "0px", opacity: 1, ease: "power3.InOut", stagger: 0.2 },
+        "tools"
+	)
+    
 
 const skillsScene = new ScrollMagic.Scene({
 	triggerElement: "#skills",
-	duration: "100%",
+	duration: "200%",
 })
 	.addTo(controller)
 	.setPin("#skills")
