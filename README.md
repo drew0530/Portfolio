@@ -2,7 +2,7 @@
 
 ***--Work in Progress--***
 
-[drew0530.github.io/Portfolio/](drew0530.github.io/Portfolio/)
+[andrew-williamson.glitch.me](andrew-williamson.glitch.me)
 
 A portfolio website built in ExpressJS, as a creative interpretation of my professional resume.
 
