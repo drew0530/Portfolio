@@ -48,7 +48,7 @@ const aboutTimeline = gsap.timeline({
 			snapTo: "labelsDirectional",
             directional: true,
 			duration: { min: 0.2, max: 1.5 },
-			delay: 0.2,
+			delay: 0.1,
 			ease: "power1.InOut",
         },
         onToggle: self => {
@@ -94,7 +94,7 @@ const experienceTimeline = gsap.timeline({
 		snap: {
 			snapTo: "labelsDirectional",
 			duration: { min: 0.2, max: 1.5 },
-			delay: 0.2,
+			delay: 0.1,
 			ease: "power1.InOut",
 		},
         onToggle: self => {
@@ -133,7 +133,7 @@ const educationTimeline = gsap.timeline({
 		snap: {
 			snapTo: "labelsDirectional",
 			duration: { min: 0.2, max: 1.5 },
-			delay: 0.2,
+			delay: 0.1,
 			ease: "power1.InOut",
 		},
         onToggle: self => {
@@ -170,7 +170,7 @@ const skillsTimeline = gsap.timeline({
 		snap: {
 			snapTo: 'labelsDirectional',
 			duration: { min: 0.2, max: 1.5 },
-			delay: 0.2,
+			delay: 0.1,
 			ease: "power1.InOut",
 		},
         onToggle: self => {
