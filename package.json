@@ -7,6 +7,9 @@
   },
   "private": true,
   "scripts": {
+    "build": "npm run start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "SET DEBUG=portfolio:* & node ./bin/www"
   },
   "dependencies": {
