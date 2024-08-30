@@ -18,5 +18,8 @@
     "pug": "^3.0.3",
     "scrollmagic": "^2.0.8",
     "serve-favicon": "^2.5.0"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.1.1"
   }
 }
