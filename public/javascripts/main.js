@@ -44,13 +44,13 @@ const aboutTimeline = gsap.timeline({
 		start: "top top",
 		end: "100%",
 		scrub: 1,
-		snap: {
-			snapTo: "labelsDirectional",
-            directional: true,
-			duration: { min: 0.2, max: 1.5 },
-			delay: 0.1,
-			ease: "power1.InOut",
-        },
+		// snap: {
+		// 	snapTo: "labelsDirectional",
+        //     directional: true,
+		// 	duration: { min: 0.2, max: 1.5 },
+		// 	delay: 0.1,
+		// 	ease: "power1.InOut",
+        // },
         onToggle: self => {
             $(".active").toggleClass("active"); // unset active links
             this.updateURL(self.pin.id);
@@ -91,12 +91,12 @@ const experienceTimeline = gsap.timeline({
 		start: "top top",
 		end: "200%",
 		scrub: 1,
-		snap: {
-			snapTo: "labelsDirectional",
-			duration: { min: 0.2, max: 1.5 },
-			delay: 0.1,
-			ease: "power1.InOut",
-		},
+		// snap: {
+		// 	snapTo: "labelsDirectional",
+		// 	duration: { min: 0.2, max: 1.5 },
+		// 	delay: 0.1,
+		// 	ease: "power1.InOut",
+		// },
         onToggle: self => {
             $(".active").toggleClass("active"); // unset active links
             this.updateURL(self.pin.id);
@@ -104,6 +104,8 @@ const experienceTimeline = gsap.timeline({
         }
 	},
 });
+
+experienceTimeline.from("#experience .title", {x: -100, opacity: 0})
 
 experienceTimeline.add("SFSEMove");
 experienceTimeline.to("#SFSE", { x: "-40px", y: "40px", opacity: 0 }, "SFSEMove");
@@ -121,6 +123,8 @@ experienceTimeline.add("QAEMove");
 experienceTimeline.to("#QAE", { x: "-100px", y: "100px", opacity: 0 }, "QAEMove");
 experienceTimeline.to(".stack-card:not(#QAE)", { x: "-80px", y: "80px" }, "QAEMove");
 
+experienceTimeline.to("#experience .title", {x: -100, opacity: 0})
+
 //
 // EDUCATION
 const educationTimeline = gsap.timeline({
@@ -130,12 +134,12 @@ const educationTimeline = gsap.timeline({
 		start: "top top",
 		end: "200%",
 		scrub: 1,
-		snap: {
-			snapTo: "labelsDirectional",
-			duration: { min: 0.2, max: 1.5 },
-			delay: 0.1,
-			ease: "power1.InOut",
-		},
+		// snap: {
+		// 	snapTo: "labelsDirectional",
+		// 	duration: { min: 0.2, max: 1.5 },
+		// 	delay: 0.1,
+		// 	ease: "power1.InOut",
+		// },
         onToggle: self => {
             $(".active").toggleClass("active"); // unset active links
             this.updateURL(self.pin.id);
@@ -144,6 +148,7 @@ const educationTimeline = gsap.timeline({
 	},
 });
 
+educationTimeline.from("#education .title", {x: -100, opacity: 0})
 educationTimeline.fromTo(
 	"#poly-straight-pink",
 	1,
@@ -167,12 +172,12 @@ const skillsTimeline = gsap.timeline({
 		start: "top top",
 		end: "200%",
 		scrub: 1,
-		snap: {
-			snapTo: 'labelsDirectional',
-			duration: { min: 0.2, max: 1.5 },
-			delay: 0.1,
-			ease: "power1.InOut",
-		},
+		// snap: {
+		// 	snapTo: 'labelsDirectional',
+		// 	duration: { min: 0.2, max: 1.5 },
+		// 	delay: 0.1,
+		// 	ease: "power1.InOut",
+		// },
         onToggle: self => {
             $(".active").toggleClass("active"); // unset active links
             this.updateURL(self.pin.id);
@@ -180,6 +185,8 @@ const skillsTimeline = gsap.timeline({
         }
 	},
 });
+
+skillsTimeline.from("#skills .title", {x: -100, opacity: 0})
 
 skillsTimeline.add("frontend");
 skillsTimeline.fromTo(
@@ -233,12 +240,12 @@ const contactTimeline = gsap.timeline({
 		start: "top top",
 		end: "100%",
 		scrub: 1,
-		snap: {
-			snapTo: [1],
-			duration: { min: 0.2, max: 1.5 },
-			delay: 0.1,
-			ease: "power1.InOut",
-		},
+		// snap: {
+		// 	snapTo: [1],
+		// 	duration: { min: 0.2, max: 1.5 },
+		// 	delay: 0.1,
+		// 	ease: "power1.InOut",
+		// },
         onToggle: self => {
             $(".active").toggleClass("active"); // unset active links
             this.updateURL(self.pin.id);
@@ -246,6 +253,8 @@ const contactTimeline = gsap.timeline({
         }
 	},
 });
+
+contactTimeline.from("#contact .title", {x: -100, opacity: 0})
 
 contactTimeline.fromTo(
 	".contact",
