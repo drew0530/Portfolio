@@ -1,10 +1,3 @@
-// TODO: Loop each section creation & override defaults for each unique modifier
-const sections = gsap.utils.toArray("section");
-let currentSection = sections[0];
-
-// stretch out the body height according to however many sections there are.
-gsap.set("body", { height: sections.length * 100 + "%" });
-
 function updateURL(id) {
 	if (history.pushState) {
 		history.pushState(null, null, "#" + id);
@@ -86,12 +79,6 @@ const experienceTimeline = gsap.timeline({
 		start: "top top",
 		end: "100%",
 		scrub: 1,
-		// snap: {
-		// 	snapTo: "labelsDirectional",
-		// 	duration: { min: 0.2, max: 1.5 },
-		// 	delay: 0.1,
-		// 	ease: "power1.InOut",
-		// },
         onToggle: self => {
             $(".active").toggleClass("active"); // unset active links
             this.updateURL(self.pin.id);
@@ -127,12 +114,6 @@ const educationTimeline = gsap.timeline({
 		start: "top top",
 		end: "100%",
 		scrub: 1,
-		// snap: {
-		// 	snapTo: "labelsDirectional",
-		// 	duration: { min: 0.2, max: 1.5 },
-		// 	delay: 0.1,
-		// 	ease: "power1.InOut",
-		// },
         onToggle: self => {
             $(".active").toggleClass("active"); // unset active links
             this.updateURL(self.pin.id);
@@ -163,12 +144,6 @@ const skillsTimeline = gsap.timeline({
 		start: "top top",
 		end: "100%",
 		scrub: 1,
-		// snap: {
-		// 	snapTo: 'labelsDirectional',
-		// 	duration: { min: 0.2, max: 1.5 },
-		// 	delay: 0.1,
-		// 	ease: "power1.InOut",
-		// },
         onToggle: self => {
             $(".active").toggleClass("active"); // unset active links
             this.updateURL(self.pin.id);
@@ -230,12 +205,6 @@ const contactTimeline = gsap.timeline({
 		start: "top top",
 		end: "100%",
 		scrub: 1,
-		// snap: {
-		// 	snapTo: [1],
-		// 	duration: { min: 0.2, max: 1.5 },
-		// 	delay: 0.1,
-		// 	ease: "power1.InOut",
-		// },
         onToggle: self => {
             $(".active").toggleClass("active"); // unset active links
             this.updateURL(self.pin.id);
