@@ -22,7 +22,7 @@ $(document).on("click", "a[href^='#']", function (e) {
 		e.preventDefault();
 
 		// trigger scroll
-		document.scrollTo(id);
+        gsap.to(window, { duration: 1, scrollTo: { y: id + "-anchor", offsetY: -225 }});
 
 		if (window.history && window.history.pushState) {
 			history.pushState(null, null, id);
@@ -34,7 +34,7 @@ $(document).on("click", "a[href^='#']", function (e) {
 $(".contact").click(function (e) {
 	e.currentTarget.lastChild.click();
 });
-// ----- SCENE CREATIONS -----
+
 //
 // ABOUT
 const aboutTimeline = gsap.timeline({
@@ -58,7 +58,6 @@ const aboutTimeline = gsap.timeline({
         }
 	},
 });
-
 aboutTimeline.add("aboutStart");
 aboutTimeline.to(["#name", ".subtitle-container"], { y: -50, ease: "power1.InOut" }, "aboutStart");
 aboutTimeline.fromTo(
@@ -81,7 +80,6 @@ function crossfade() {
 	gsap.delayedCall(next, crossfade);
 }
 gsap.delayedCall(next, crossfade);
-
 //
 // EXPERIENCE
 const experienceTimeline = gsap.timeline({
@@ -104,7 +102,6 @@ const experienceTimeline = gsap.timeline({
         }
 	},
 });
-
 experienceTimeline.from("#experience .title", {x: -100, opacity: 0})
 
 experienceTimeline.add("SFSEMove");
@@ -124,7 +121,6 @@ experienceTimeline.to("#QAE", { x: "-100px", y: "100px", opacity: 0 }, "QAEMove"
 experienceTimeline.to(".stack-card:not(#QAE)", { x: "-80px", y: "80px" }, "QAEMove");
 
 experienceTimeline.to("#experience .title", {x: -100, opacity: 0})
-
 //
 // EDUCATION
 const educationTimeline = gsap.timeline({
@@ -147,8 +143,8 @@ const educationTimeline = gsap.timeline({
         }
 	},
 });
-
 educationTimeline.from("#education .title", {x: -100, opacity: 0})
+
 educationTimeline.fromTo(
 	"#poly-straight-pink",
 	1,
@@ -162,7 +158,7 @@ educationTimeline.fromTo(
 	{ y: "0%", opacity: 1, ease: "power4.out" }
 );
 educationTimeline.add('educationEnd')
-
+educationTimeline.to("#education .title", {x: -100, opacity: 0})
 //
 // SKILLS
 const skillsTimeline = gsap.timeline({
@@ -185,7 +181,6 @@ const skillsTimeline = gsap.timeline({
         }
 	},
 });
-
 skillsTimeline.from("#skills .title", {x: -100, opacity: 0})
 
 skillsTimeline.add("frontend");
@@ -230,7 +225,7 @@ skillsTimeline.fromTo(
 	"tools"
 );
 skillsTimeline.add("skillsEnd")
-
+skillsTimeline.to("#skills .title", {x: -100, opacity: 0})
 //
 // CONTACT
 const contactTimeline = gsap.timeline({
@@ -253,7 +248,6 @@ const contactTimeline = gsap.timeline({
         }
 	},
 });
-
 contactTimeline.from("#contact .title", {x: -100, opacity: 0})
 
 contactTimeline.fromTo(
