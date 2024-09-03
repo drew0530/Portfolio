@@ -22,7 +22,7 @@ $(document).on("click", "a[href^='#']", function (e) {
 		e.preventDefault();
 
 		// trigger scroll
-        gsap.to(window, { duration: 1, scrollTo: { y: id + "-anchor", offsetY: -225 }});
+        gsap.to(window, { duration: 1, scrollTo: { y: id + "-anchor", offsetY: -150 }});
 
 		if (window.history && window.history.pushState) {
 			history.pushState(null, null, id);
@@ -34,6 +34,11 @@ $(document).on("click", "a[href^='#']", function (e) {
 $(".contact").click(function (e) {
 	e.currentTarget.lastChild.click();
 });
+
+const introTimeline = gsap.timeline()
+introTimeline.from('#name', {opacity: 0, duration: 2, y: 100, ease: 'power1'})
+introTimeline.from('.subtitle-container', {opacity: 0, duration: 1})
+introTimeline.from('.nav-bar', {opacity: 0, duration: 2})
 
 //
 // ABOUT
@@ -58,15 +63,7 @@ const aboutTimeline = gsap.timeline({
         }
 	},
 });
-aboutTimeline.add("aboutStart");
-aboutTimeline.to(["#name", ".subtitle-container"], { y: -50, ease: "power1.InOut" }, "aboutStart");
-aboutTimeline.fromTo(
-	".summary",
-	{ opacity: 0, y: 100 },
-	{ opacity: 1, y: 0, ease: "power1.InOut", delay: 0.1 },
-	"aboutStart"
-);
-aboutTimeline.add("aboutEnd")
+aboutTimeline.from(".summary", { opacity: 0, y: 100, ease: "power1.InOut"});
 // Subtitle vertical marquee w/ delay
 const imgs = gsap.utils.toArray(".subtitle");
 const next = 1.5; // time to change
