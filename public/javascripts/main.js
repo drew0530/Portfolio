@@ -87,7 +87,7 @@ const experienceTimeline = gsap.timeline({
 		trigger: "#experience",
 		pin: true,
 		start: "top top",
-		end: "200%",
+		end: "100%",
 		scrub: 1,
 		// snap: {
 		// 	snapTo: "labelsDirectional",
@@ -128,7 +128,7 @@ const educationTimeline = gsap.timeline({
 		trigger: "#education",
 		pin: true,
 		start: "top top",
-		end: "200%",
+		end: "100%",
 		scrub: 1,
 		// snap: {
 		// 	snapTo: "labelsDirectional",
@@ -166,7 +166,7 @@ const skillsTimeline = gsap.timeline({
 		trigger: "#skills",
 		pin: true,
 		start: "top top",
-		end: "200%",
+		end: "100%",
 		scrub: 1,
 		// snap: {
 		// 	snapTo: 'labelsDirectional',
