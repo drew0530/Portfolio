@@ -11,6 +11,7 @@ block content
       a(href="#education") Education
       a(href="#skills") Skills
       a(href="#contact") Contact
+  #about-anchor
   section#about
     .panel-container.flex-column
       h1#name ANDREW WILLIAMSON
@@ -20,12 +21,13 @@ block content
         h2.subtitle UI/UX Designer
         h2.subtitle Visual Designer
       h5.summary Full Stack Developer with 7 years of development experience in creating beautiful Angular-based applications, powerful APIs, and well-structured SQL databases. Familiar with Agile-flow environments, and experienced in leading others to achieve short and long-term deliverables. Most proficient in Angular, .NET Core, SQL, and Azure Devops.
+  #experience-anchor
   section#experience
     .panel-container
       .title.col-3 Experience 
       .content.col-9
         .stack-container
-          .stack-card.violet#QAE
+          .stack-card#QAE
             .job-title
               h3 QA Engineer
               span John J Jerue, Inc.
@@ -33,7 +35,7 @@ block content
               em October 2017 - January 2018
             ul
               li Performed, end-to-end, regression, and component tests on Angular-based web and mobile applications.
-          .stack-card.grape#JFSE
+          .stack-card#JFSE
             .job-title
               h3 Junior Full-Stack Engineer
               span John J Jerue, Inc.
@@ -43,7 +45,7 @@ block content
               li Updated existing systems to modern design standards, redesigning the UI and converting to Material Design
               li Provided Tier-2 support for users, fixing bugs and developing short-term deliverables and features
               li Created detailed financial reporting on the data present within the system, and created an intuitive UI to provide these reports
-          .stack-card.steel-blue#FSE
+          .stack-card#FSE
             .job-title
               h3 Full-Stack Engineer
               span John J Jerue, Inc.
@@ -53,7 +55,7 @@ block content
               li Created elegant and intuitive UI/UX systems to improve workflow and ease of use
               li Completed the release of a total migration from AngularJS and .NET Framework to Angular and .NET Core
               li Created complex Web APIs using .NET Core and Entity Framework that interact with several integrations from third-party services and APIs
-          .stack-card.aero#SFSE
+          .stack-card#SFSE
             .job-title
               h3 Senior Full-Stack Engineer
               span John J Jerue, Inc.
@@ -63,17 +65,20 @@ block content
               li Planned, tracked, and managed deliverables on 200+ sprints and several long-term deployments
               li Led design and development of hundreds of new features and updates to a variety of systems, improving performance and user experience
               li Created and managed several CI/CD pipelines that allowed for rapid development, testing, and deployment to multiple environments
+  #education-anchor
   section#education
     .panel-container.align-items-center
       .title.col-3 Education
       .content.col-9.flex-row.d-flex
         .school-image-container.col-6.d-flex.justify-content-center
-          #poly-straight-blue.school-image
-          #poly-straight-pink.school-image
-          #poly-straight-dark-blue.school-image
+          img#poly-straight-blue.school-image.img-fluid(src='./images/poly-straight-blue.jpg')
+          img#poly-straight-pink.school-image.img-fluid(src='./images/poly-straight-pink.png')
+          img#poly-straight-dark-blue.school-image.img-fluid(src='./images/poly-straight-dark-blue.png')
         .degree-container.col-6.d-flex.justify-content-center.flex-column
-          h4 Bachelor of Science - Computer Science 
-          h6 Florida Polytechnic University 2014 - 2018
+          h4 Computer Science
+          h6 Florida Polytechnic University
+          h7 2014 - 2018
+  #skills-anchor
   section#skills
     .panel-container
       .title.col-3 Skills
@@ -129,13 +134,14 @@ block content
           .skill
             img#swagger.skill-icon(src="./images/swagger.svg")
             .skill-text Swagger API
+  #contact-anchor
   section#contact
     .panel-container.d-flex
       .title.col-3 Contact
-      .content.col-9.justify-content-center.d-flex.flex-column
+      .content.col-9.d-flex.flex-column
         .content-card.contact
           i.fas.fa-phone
-          a(href="tel:+12399613068", target="_blank") +1 (239) 961-3068
+          a(href="tel:+12399613068", target="_blank") Phone
         .content-card.contact
           i.fab.fa-github 
           a(href="https://github.com/drew0530", target="_blank") Github 
@@ -146,6 +152,6 @@ block content
           i.fas.fa-envelope 
           a(href="mailto:drew.will0709@gmail.com", target="_blank") Email
         .content-card.contact
-          i.fas.fa-file 
+          i.fas.fa-file-pdf
           a(href="https://docs.google.com/document/d/1sYlzgUZK6HtMN-6PjqhH4PnfeiDwRJJvIrKJiu5j7c4/edit?usp=sharing", target="_blank") Resume
   script(src='/javascripts/main.js')

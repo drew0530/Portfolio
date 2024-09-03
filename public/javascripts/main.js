@@ -1,10 +1,3 @@
-// TODO: Loop each section creation & override defaults for each unique modifier
-const sections = gsap.utils.toArray("section");
-let currentSection = sections[0];
-
-// stretch out the body height according to however many sections there are.
-gsap.set("body", { height: sections.length * 100 + "%" });
-
 function updateURL(id) {
 	if (history.pushState) {
 		history.pushState(null, null, "#" + id);
@@ -22,7 +15,7 @@ $(document).on("click", "a[href^='#']", function (e) {
 		e.preventDefault();
 
 		// trigger scroll
-		document.scrollTo(id);
+        gsap.to(window, { duration: 1, scrollTo: { y: id + "-anchor", offsetY: -150 }});
 
 		if (window.history && window.history.pushState) {
 			history.pushState(null, null, id);
@@ -34,7 +27,12 @@ $(document).on("click", "a[href^='#']", function (e) {
 $(".contact").click(function (e) {
 	e.currentTarget.lastChild.click();
 });
-// ----- SCENE CREATIONS -----
+
+const introTimeline = gsap.timeline()
+introTimeline.from('#name', {opacity: 0, duration: 1.5, y: 100, ease: 'power1'})
+introTimeline.from('.subtitle-container', {opacity: 0, duration: 1})
+introTimeline.from('.nav-bar', {opacity: 0, duration: 1.5})
+
 //
 // ABOUT
 const aboutTimeline = gsap.timeline({
@@ -44,13 +42,13 @@ const aboutTimeline = gsap.timeline({
 		start: "top top",
 		end: "100%",
 		scrub: 1,
-		snap: {
-			snapTo: "labelsDirectional",
-            directional: true,
-			duration: { min: 0.2, max: 1.5 },
-			delay: 0.2,
-			ease: "power1.InOut",
-        },
+		// snap: {
+		// 	snapTo: "labelsDirectional",
+        //     directional: true,
+		// 	duration: { min: 0.2, max: 1.5 },
+		// 	delay: 0.1,
+		// 	ease: "power1.InOut",
+        // },
         onToggle: self => {
             $(".active").toggleClass("active"); // unset active links
             this.updateURL(self.pin.id);
@@ -58,16 +56,7 @@ const aboutTimeline = gsap.timeline({
         }
 	},
 });
-
-aboutTimeline.add("aboutStart");
-aboutTimeline.to(["#name", ".subtitle-container"], { y: -50, ease: "power1.InOut" }, "aboutStart");
-aboutTimeline.fromTo(
-	".summary",
-	{ opacity: 0, y: 100 },
-	{ opacity: 1, y: 0, ease: "power1.InOut", delay: 0.1 },
-	"aboutStart"
-);
-aboutTimeline.add("aboutEnd")
+aboutTimeline.from(".summary", { opacity: 0, y: 100, ease: "power1.InOut"});
 // Subtitle vertical marquee w/ delay
 const imgs = gsap.utils.toArray(".subtitle");
 const next = 1.5; // time to change
@@ -81,7 +70,6 @@ function crossfade() {
 	gsap.delayedCall(next, crossfade);
 }
 gsap.delayedCall(next, crossfade);
-
 //
 // EXPERIENCE
 const experienceTimeline = gsap.timeline({
@@ -89,14 +77,8 @@ const experienceTimeline = gsap.timeline({
 		trigger: "#experience",
 		pin: true,
 		start: "top top",
-		end: "200%",
+		end: "100%",
 		scrub: 1,
-		snap: {
-			snapTo: "labelsDirectional",
-			duration: { min: 0.2, max: 1.5 },
-			delay: 0.2,
-			ease: "power1.InOut",
-		},
         onToggle: self => {
             $(".active").toggleClass("active"); // unset active links
             this.updateURL(self.pin.id);
@@ -104,6 +86,7 @@ const experienceTimeline = gsap.timeline({
         }
 	},
 });
+experienceTimeline.from("#experience .title", {y: 100, opacity: 0})
 
 experienceTimeline.add("SFSEMove");
 experienceTimeline.to("#SFSE", { x: "-40px", y: "40px", opacity: 0 }, "SFSEMove");
@@ -121,6 +104,7 @@ experienceTimeline.add("QAEMove");
 experienceTimeline.to("#QAE", { x: "-100px", y: "100px", opacity: 0 }, "QAEMove");
 experienceTimeline.to(".stack-card:not(#QAE)", { x: "-80px", y: "80px" }, "QAEMove");
 
+experienceTimeline.to("#experience .title", {y: -100, opacity: 0})
 //
 // EDUCATION
 const educationTimeline = gsap.timeline({
@@ -128,14 +112,8 @@ const educationTimeline = gsap.timeline({
 		trigger: "#education",
 		pin: true,
 		start: "top top",
-		end: "200%",
+		end: "100%",
 		scrub: 1,
-		snap: {
-			snapTo: "labelsDirectional",
-			duration: { min: 0.2, max: 1.5 },
-			delay: 0.2,
-			ease: "power1.InOut",
-		},
         onToggle: self => {
             $(".active").toggleClass("active"); // unset active links
             this.updateURL(self.pin.id);
@@ -143,7 +121,7 @@ const educationTimeline = gsap.timeline({
         }
 	},
 });
-
+educationTimeline.from("#education .title", {y: 100, opacity: 0})
 educationTimeline.fromTo(
 	"#poly-straight-pink",
 	1,
@@ -156,8 +134,7 @@ educationTimeline.fromTo(
 	{ y: "100%", opacity: 0 },
 	{ y: "0%", opacity: 1, ease: "power4.out" }
 );
-educationTimeline.add('educationEnd')
-
+educationTimeline.to("#education .title", {y: -100, opacity: 0})
 //
 // SKILLS
 const skillsTimeline = gsap.timeline({
@@ -165,14 +142,8 @@ const skillsTimeline = gsap.timeline({
 		trigger: "#skills",
 		pin: true,
 		start: "top top",
-		end: "200%",
+		end: "100%",
 		scrub: 1,
-		snap: {
-			snapTo: 'labelsDirectional',
-			duration: { min: 0.2, max: 1.5 },
-			delay: 0.2,
-			ease: "power1.InOut",
-		},
         onToggle: self => {
             $(".active").toggleClass("active"); // unset active links
             this.updateURL(self.pin.id);
@@ -180,6 +151,7 @@ const skillsTimeline = gsap.timeline({
         }
 	},
 });
+skillsTimeline.from("#skills .title", {y: 100, opacity: 0})
 
 skillsTimeline.add("frontend");
 skillsTimeline.fromTo(
@@ -223,7 +195,7 @@ skillsTimeline.fromTo(
 	"tools"
 );
 skillsTimeline.add("skillsEnd")
-
+skillsTimeline.to("#skills .title", {y: -100, opacity: 0})
 //
 // CONTACT
 const contactTimeline = gsap.timeline({
@@ -233,12 +205,6 @@ const contactTimeline = gsap.timeline({
 		start: "top top",
 		end: "100%",
 		scrub: 1,
-		snap: {
-			snapTo: [1],
-			duration: { min: 0.2, max: 1.5 },
-			delay: 0.1,
-			ease: "power1.InOut",
-		},
         onToggle: self => {
             $(".active").toggleClass("active"); // unset active links
             this.updateURL(self.pin.id);
@@ -246,6 +212,7 @@ const contactTimeline = gsap.timeline({
         }
 	},
 });
+contactTimeline.from("#contact .title", {y: 100, opacity: 0})
 
 contactTimeline.fromTo(
 	".contact",
